@@ -1,0 +1,9 @@
+title: SticIGui SurveyJS Exercises
+author: SticiGui Project
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  shortcodes:
+    - sticigui-surveyjs.lua
+  format-resources:
+    - sticigui-surveyjs.css

@@ -1,0 +1,32 @@
+# Logic exercises for ch2_4 - demonstrating per-input randomization
+ch2_4:
+  question: |
+    Mixed randomization example - some inputs randomized, others not.
+  type: button
+  exercises:
+    - question: "Answer the following logic problems with mixed randomization."
+      inputs:
+        - prompt: "A. Therefore, not (not A)."
+          type: button
+          random: true  # This input will have randomized choices
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is the definition of 'not.'"
+        - prompt: "A. B. Therefore, A and B."
+          type: button
+          # No random property - choices will not be randomized
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is the definition of 'and.'"
+        - prompt: "B. Therefore, A or B."
+          type: button
+          random: true  # This input will have randomized choices
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "A or B is true if A is true, if B is true and if both A and B are true."
+        - prompt: "A or B. Not B. Therefore, A."
+          type: button
+          # No random property - choices will not be randomized
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "If either A or B is true, and B is not true, A must be true."

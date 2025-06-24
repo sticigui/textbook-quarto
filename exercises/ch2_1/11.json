@@ -1,0 +1,18 @@
+{
+  "title": "Exercise 2-1",
+  "pages": [
+    {
+      "elements": [
+        { "type": "html", "name": "prompt_html", "html": "A or B.  A.  Therefore, not B." },
+        { "type": "radiogroup", "name": "answer", "title": "Select one:", "choices": ["Valid", "Fallacious"], "correctAnswer": "Fallacious", "isRequired": true },
+        { "type": "html", "name": "explanation_html", "visibleIf": "{answer} = {answer}", "html": "<div class='explanation'>A or B is true with either A, B or both are true. So, both A and B could be true, and it does not follow that B is false.</div>" }
+      ]
+    }
+  ],
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true
+}

@@ -1,0 +1,857 @@
+---
+title: "Statistics"
+format: html
+number-sections: false
+---
+
+Statistics is the science of drawing conclusions from data.
+This chapter introduces a rough taxonomy of data, as well as tools for
+presenting,
+summarizing, and displaying data: tables, frequency tables, histograms,
+and percentiles.
+The tools are
+illustrated using datasets from trade secret litigation and geophysics.
+
+## Data
+
+In its broadest sense, Statistics is the science of
+drawing conclusions about the world from data.
+Data are observations (measurements) of
+some quantity or quality of something in the world.
+"Data" is a plural noun; the singular form is "datum."
+Our lives are filled with data: the weather, weights,
+prices, our state of health, exam grades, bank balances, election results, and so on.
+Data come in many forms, most of which are numbers, or can be translated into numbers for
+analysis.
+In this chapter, we will see several types of data and tools for summarizing
+data.
+
+There are several important questions to keep in mind when you
+evaluate quantitative evidence:
+
+- Are the data relevant to the question asked?
+- Was the data collection fair, or might there have been some conscious or unconscious [bias](gloss.htm#bias) that influenced the results or made some cases less likely to be observed?
+- Do the data make sense?
+
+The answers to these questions are crucial to drawing conclusions
+from data.
+
+::: {.callout-note appearance="minimal" #nte-data-relevance}
+**Data of little relevance.**
+
+Trident® sugarless gum used to advertise that "4 out of 5 dentists
+surveyed recommend Trident® sugarless gum for their patients who chew gum."
+
+Such a survey says little about whether Trident® gum is better for your
+teeth than other gum, with or without sugar.[^footnote1]
+It would be more relevant to study the effect on teeth of chewing
+different kinds of gum, not the opinions of dentists who might not have
+conducted (or even read) any empirical research on the effects of different
+kinds of gum.
+
+[^footnote1]: Other issues, such as how the dentists were selected, what questions were asked, how missing data were treated, etc., may also lead to biased or unreliable results. These issues are discussed in later chapters.
+:::
+
+::: {.callout-note appearance="minimal" #nte-data-bias}
+**Data with inadvertent bias.**
+
+Course evaluation forms often ask students questions about the effectiveness of
+the instructor.
+At UC Berkeley, many students are absent from class when evaluation forms are
+passed out and collected.
+If students who do not find lectures helpful are more likely to skip class,
+the evaluation form data will tend to be biased: on average, the forms will tend to
+report that the instructor is more effective than students really think he really is.[^footnote2]
+
+[^footnote2]: Moreover, the data might have little to with how effective the instructor is.
+:::
+
+For more on these topics, see [Hooke (1983)](./references.htm#hooke),
+[Huff (1993)](./references.htm#huff) and
+[Taleb (2007)](./references.htm#taleb07).
+
+### Variables
+
+A [variable](gloss.htm#variable) is a value
+or characteristic that can differ from individual to individual.
+Data are generally recorded values of variables.
+[Quantitative variables](gloss.htm#quantitative)
+take numerical values whose "size" is meaningful.
+[Quantitative](gloss.htm#quantitative) variables answer questions such as
+"how many?" or "how much?"
+For example, it makes sense to add, to subtract, and to
+compare two persons' weights, or two families' incomes:
+These are quantitative variables.
+Quantitative
+variables typically have measurement units, such as pounds, dollars, years, volts,
+gallons, megabytes, inches, degrees, miles per hour, pounds per square inch, BTUs, and
+so on.
+
+Some [variables](gloss.htm#variable), such as social
+security numbers and zip codes, take numerical values, but are not
+quantitative:
+They are [qualitative](gloss.htm#qualitative) or
+[categorical](gloss.htm#categorical) variables.
+The sum of two zip codes or social security numbers is not meaningful.
+The average of a list of zip codes is not meaningful.
+[Qualitative](gloss.htm#qualitative) and
+[categorical](gloss.htm#categorical) variables typically do not have units.
+Qualitative or categorical variables—such as gender, hair
+color, or ethnicity—group individuals.
+Qualitative and categorical variables have neither a "size" nor, typically,
+a natural ordering to their values.
+They answer questions such as "which kind?"
+The values categorical and qualitative variables take are typically adjectives
+(for example, green, female, or tall).
+Arithmetic
+with [qualitative](gloss.htm#qualitative) variables usually does not
+make sense, even if the variables take numerical values.
+[Categorical](gloss.htm#categorical)
+variables divide individuals into categories, such as gender, ethnicity, age group, or
+whether or not the individual finished high school.
+
+::::: {.callout-note appearance="minimal"}
+## Examples of qualitative, quantitative, and categorical variables
+
+:::: {.grid}
+
+::: {.g-col-4}
+**Qualitative**
+
+- Hot/Warm/Cold
+- Population density: low/medium/high
+- Height: short/medium/tall
+- Under 5', 5'–6', Over 6'
+- Slender/Average/Overweight
+- Young/Middle-aged/Old
+- Social class: lower/middle/upper
+- Family size: fewer than 3, 3–5, more than 5
+:::
+
+::: {.g-col-4}
+**Quantitative**
+
+- Temperature in °C
+- Population density: people per square mile
+- Height in inches
+- Height in centimeters
+- Body mass index (BMI)
+- Age in seconds
+- Income in dollars
+- Family size (#people)
+:::
+
+::: {.g-col-4}
+**Categorical**
+
+- Temperature: pleasant/unpleasant
+- Rural/Urban area
+- endomorph/mesomorph/ectomorph
+- Type of climate
+- Gender
+- Ethnicity
+- Zip code
+- Hair color
+- Country of origin
+:::
+
+::::
+:::::
+
+The distinction between these types of variables is
+somewhat blurry.
+For example, we might group ages into categories such as under 5 years
+old, between 5 and 15, between 15 and 25, between 25 and 40, and over 40.
+Similarly,
+whether gender or climate types are qualitative or categorical variables is not clear-cut.
+Generally, if there is an implicit ordering of the values the variable can take (hot is
+warmer than warm, which is warmer than cold), there is a tendency to call a variable
+qualitative rather than categorical; some people call such variables
+[ordinal](gloss.htm#ordinal).
+It is common to **code**
+categorical and qualitative variables using numbers, for example, 1 for male and 0 for
+female.
+*The fact that a category is labeled with a number does not make the
+variable quantitative!*
+The real issue is whether arithmetic and other mathematical operations with the values makes sense.
+
+Individuals need not be people; for example, we might be
+comparing microclimates in the San Francisco Bay Area, using variables such as
+
+- annual rainfall in inches (quantitative)
+- annual number of sunny days (quantitative, discrete)
+- A classification into "very foggy," "somewhat foggy," and "sunny." (qualitative, ordinal)
+- annual average temperature in degrees Fahrenheit. (quantitative)
+
+Similarly, the "individuals" could be a single
+"individual" at different times:
+A variable might be the price of a share of
+Microsoft stock at different times.
+
+It is sometimes useful to divide
+[quantitative](gloss.htm#quantitative) variables further into
+[discrete](gloss.htm#discrete) and
+[continuous](gloss.htm#continuous)
+variables. (This division is sometimes rather artificial.)
+The set of possible values of a
+[discrete](gloss.htm#discrete) variable is
+[countable](gloss.htm#countable).[^footnote3]
+Examples of discrete variables include ages measured to the
+nearest year, the number of people in a family, and stock prices on the
+New York Stock Exchange.
+In the first two of these examples, the
+variable can take only some positive integers as values.
+In all three examples, there is a
+minimum spacing between the possible values.
+Most discrete variables are like this—they
+are "chunky."
+Variables that count things are always discrete.
+
+[^footnote3]: A set is **countable** if it can be put in one-to-one correspondence with a [subset](gloss.htm#subset) of the [counting numbers](gloss.htm#counting_numbers) 1, 2, 3, …
+
+Examples of continuous variables include things like the exact
+ages or heights of individuals, the exact temperature of something, *etc*.
+There is
+no minimum spacing between the possible values of a continuous variable.
+The possible
+values of discrete variables don't necessarily have a minimum spacing.
+(For example, the set of fractions—rational numbers—is
+[countable](gloss.htm#countable),
+but there is no minimum spacing between fractions.)
+One reason the distinction between
+discrete and continuous variables is somewhat vague is that in practice there is always
+a limit to the precision with which we can measure any variable.
+The limit depends on the instrument
+we use to make the measurement, how much time we take to make the measurement,
+and so on.
+For most purposes, the distinction between continuous and discrete variables
+is not important.
+
+The following exercise checks your understanding of the differences
+among types of variables.
+The exercise will tell you immediately whether you are right or wrong:
+Each question is followed by an image.
+Initially, the image is a question mark.
+If you answer the question correctly, the question mark is replaced by a
+check mark.
+If you answer the question incorrectly, the question mark is replaced by an X.
+Once you attempt the exercise, you can see the correct answer by clicking the image.
+Clicking the image again will hide the answer.
+Clicking the Solution link (when there is one) reveals a more detailed answer.
+
+{{< sticigui-surveyjs file="exercises/ch3_1.json" >}}
+
+### Sample Data Sets
+
+Throughout this book, as we learn new techniques we shall apply them to
+real-world data from business, demography, education, law, medicine, and physics.
+Applying the techniques to data will help us to understand the techniques and to
+identify when the techniques are appropriate.
+The following sections introduce data we shall use to illustrate and to practice
+constructing and interpreting tables, frequency tables, histograms, and percentiles.
+
+#### Trade Secret Data
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=50&end=449 title="Trade Secret Data" >}}
+
+The first data set is the Trade Secret Data, which
+arose from a lawsuit alleging the theft of a customer list.
+The names of the people and firms have been changed, but otherwise,
+the facts are stated as I understand them.
+
+On 1 May 1995, two former employees of WeeBee Hardware (WBH), a firm that sells
+computer components to computer assemblers and retailers, opened the doors of a new
+company, Weasell Drives (WD).
+One of the former employees had worked at WBH up
+to the day before WD opened its doors; the other had stopped working for WBH
+about 18 months previously.
+Both firms are in the greater San Francisco Bay Area.
+
+From the time WD started business, it sold essentially the same kinds of computer
+components that WBH did, mostly to former customers of one of the former employees, at
+essentially the same prices and with essentially the same credit terms. Indeed, in the
+first two days WD was in business, one of the former employees had called the top dozen
+of her WBH accounts.
+In its first month of business, WD sold about $1 million of equipment to
+former customers of WBH; that amount increased to about $2 million per
+month in the course of a few months.
+
+The principals of WBH sought an injunction against WD to prevent it from selling to
+customers of WBH, alleging that their customer list was a trade secret and had been
+misappropriated by its former employees.[^footnote4]
+
+[^footnote4]: A further complication is that *another* former employee of WBH and arch-rival of the principals of WBH apparently set up WD's business, including renting facilities for them, financing their startup, and advancing about $400,000 of inventory to them without collateral.
+
+It is well established that a customer list can qualify as a trade secret: It has
+economic value, and derives its value from not being generally known.
+Customer lists can be the product of years of soliciting new business by advertising and
+"cold-calling" tens of
+thousands of potential customers and winnowing that list down to a few hundred
+or a few thousand who actually do buy the kind of equipment the firm sells, who will buy
+it from that firm, and who pay promptly.
+With knowledge of a firm's list of customers, a competitor could avoid the time and expense of
+some advertising, cold-calling, checking credit
+references, bad debt, and so on.
+
+In response to WBH's request for an injunction, WD asserted:
+
+- They found the names of the customers in public sources, such as CD-ROMs that contain lists of businesses, and from computer magazines in which those customers advertise, *not* from their knowledge of WBH's customers.
+- Such a large overlap with WBH's customer list was inevitable, because WBH had so many customers.
+
+A California Court of Appeals decision (*ABBA Rubber Co. v. Seaquist* 286
+Cal. Rptr. at 528) establishes that a "readily ascertainable by proper
+means" affirmative defense to a claim of misappropriation is appropriate under
+certain circumstances:
+
+> [I]f the defendants can convince the finder of fact …
+> (1) that it is a virtual
+> certainty that anyone who manufactures certain types of products uses rubber rollers,
+> (2) that the manufacturers of those products are easily identifiable, and (3) that the
+> defendants' knowledge of the plaintiff's customers **resulted from
+> that identification process and not from the plaintiff's records**,
+> then the defendants may establish a defense to the misappropriation
+> claim.
+
+*ABBA Rubber Co.*, 286 Cal. Rptr. at 529, ftnt. 9.
+
+WD would thus be in the clear if they could show that they identified
+the customers they called from the CD-ROMs and/or magazines without
+using their knowledge of WBH's customer list.
+I was retained as an expert witness to calculate the probability that
+certain subsets of WD customers would overlap with analogous subsets
+of the active WBH customer list to the extent that they do, and that
+WD would place as large a number of calls to WBH customers as they did,
+under various assumptions.
+The plaintiff's law firm matched the defendants' customer list against the
+plaintiff's, and against advertisements in the magazines from which WD claimed
+they obtained most of their customers.
+The plaintiff agreed (stipulated) that essentially all the names in
+question were in the CD-ROMs.
+The plaintiff's law firm also went through the defendants'
+telephone records and identified calls to WBH customers and others.
+Only local toll calls and long distance calls result in telephone records,
+so calls to WBH customers who are close to WD could not be identified.
+
+WBH had 3310 active customers at the time in question; WD had 132.
+They had 93 customers in common.
+WD claimed to have found the names of 27 of their customers in local
+trade magazine advertisements, and to have found the names of 31 of their customers in
+the CD-ROMs.
+A total of 469 potential buyers of the kind of equipment WD sells advertised
+in the magazines in question; 152 of them were WBH customers.
+Of the 27 customers WD claimed to have found in the magazines, 26 were customers of WBH.
+Of the 31 customers WD claimed to have found in the CD-ROMs, 22 were customers of WBH.
+Of the 3310 WBH customers, 1769 were outside the San Francisco Bay Area.
+Of the 132 WD customers, 8 were outside the San Francisco Bay Area.
+All 8 of the WD customers outside the Bay Area were also customers of WBH.
+Other experts estimated that there were more than 90,000 potential buyers of the kinds of
+equipment WBH and WD sell in the U.S. as a whole, and more than 60,000 outside the San
+Francisco Bay Area (including Silicon Valley).
+There were 2906 WBH customers to whom calls
+by WD would have resulted in phone records, and 68 WD customers for whom there were phone
+records, of whom 53 were customers of WBH.
+In the month of May, 1995, WD placed a total of
+1050 calls that produced phone records, and 1006 of them were to the 53 customers of WBH.
+
+Presenting the data in a narrative is extremely hard to follow.
+It is much easier to understand the data using a table:
+
+| Customer Group | At Large | WBH | WD | Overlap |
+|---|---:|---:|---:|---:|
+| All Customers | >90,000 | 3310 | 132 | 93 |
+| Customers outside Bay Area | >60,000 | 1769 | 8 | 8 |
+| CD-ROM | >90,000 | 3310 | 31 | 22 |
+| Magazine Ads | 469 | 152 | 27 | 26 |
+| Phone Records | >60,000 | 2,906 | 68 | 53 |
+
+: Sizes of groups of purchasers and potential purchasers of computer equipment of the type sold by WBH and WD.
+
+| to the 53 WBH clients | to all 68 clients |
+|---:|---:|
+| 1006 | 1050 |
+
+: Phone calls in WD phone records, May 1995.
+
+These data are quantitative and discrete (they count various things).
+In other chapters, we shall use these data to test WD's claim that the large
+overlap of the customer lists was inevitable given the number of customers WBH had.
+
+Reading tables is an extremely important skill.
+The following exercises may give you valuable practice.
+
+{{< sticigui-surveyjs file="exercises/ch3_2.json" >}}
+
+{{< sticigui-surveyjs file="exercises/ch3_3.json" >}}
+
+{{< sticigui-surveyjs file="exercises/ch3_4.json" >}}
+
+{{< sticigui-surveyjs file="exercises/ch3_5.json" >}}
+
+
+#### Gravity Data
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=449&end=731 title="Gravity Data" >}}
+
+The second set of data is a collection of measurements of $g$,
+the acceleration due to gravity, made at Piñon Flat Observatory in 1989 (day 229, between
+5:29:52pm and 5:48:08pm).
+You might remember from a physics class that if you drop an
+object, it falls faster and faster (it accelerates), until it hits the ground.
+The rate at which it would accelerate, in the absence of air resistance, is $g$.
+At Earth's
+surface, $g$ is about 9.8 meters per second per second (m/s²).
+That is, each second an object falls, it gains about 9.8 meters per second of speed.
+A meter per second (m/s) is about 2.24 miles per hour (mph), so the acceleration
+due to Earth's gravity is about
+
+$$(9.8 \text{ m/s}^2) \times (2.24 \text{ mph/(m/s)}) = 22 \text{ miles per hour per second}.$$
+
+If you go bungee jumping from high enough that you
+fall for 2 seconds before the bungee starts to stretch, you will be going about
+
+$$(22 \text{ miles per hour per second}) \times (2 \text{ seconds}) = 44 \text{ miles per hour}.$$
+
+This calculation neglects air resistance, which would slow you down a bit.
+
+The table lists the [deviations](gloss.htm#deviation) of the 100
+measurements from a base value of 9.792838 m/s², times 10⁸.
+That is, each entry in the table is
+
+$$100,000,000 \times (\text{measured value of } g \text{ in m/s}^2 - 9.792838).$$
+
+(Note that 10⁸ =
+10×10×10×10×10×10×10×10 =
+100,000,000. If you need to review exponential notation,
+see [Assignment](../Problems/index.htm) 1.)
+
+The experimental apparatus used to collect these data is pretty slick:
+It uses a laser and an accurate time
+reference to determine the distance a mirrored corner of a cube falls in a vacuum chamber
+as a function of time.
+The cube is dropped in a vacuum to avoid air resistance, which
+would make the measurements systematically too small.
+These measurements were made at Piñon Flat Observatory by Glen
+Sasagawa and Mark Zumberge of the Scripps Institution of Oceanography in La Jolla,
+California.
+Tiny fluctuations in gravity, like those this instrument can measure, allow
+geophysicists to learn about the distribution of mass within the Earth,
+about movements of the Earth associated with the tides,
+and with stresses that lead to earthquakes.
+
+| | | | | | | | | | |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| -1 | 2 | -74 | -44 | -19 | -60 | -106 | -83 | -86 | -79 |
+| -24 | -12 | 14 | -74 | -50 | 41 | 14 | 72 | -15 | -107 |
+| -71 | -128 | -35 | -120 | 18 | -101 | -19 | -67 | 24 | -27 |
+| -106 | 0 | 150 | 0 | 14 | -132 | -14 | 18 | -14 | 51 |
+| -37 | -34 | -59 | -113 | 29 | -83 | -38 | -108 | -61 | -16 |
+| 45 | -69 | -34 | -4 | -71 | -132 | -89 | -55 | -24 | 19 |
+| -99 | 155 | 1 | -12 | -67 | 14 | -112 | -12 | -16 | -60 |
+| -43 | -62 | -19 | -80 | -19 | -122 | -49 | 29 | -101 | -74 |
+| 7 | -18 | -105 | -121 | -27 | -16 | -48 | -29 | -65 | -48 |
+| -80 | -152 | -52 | -26 | -87 | -107 | -54 | -54 | -47 | -106 |
+
+: One hundred measurements of g, the acceleration due to gravity, at Piñon Flat Observatory. The entries are 10⁸ times the deviations of g from a reference value of 9.792838 m/s².
+
+Here, the tabular representation does not mean anything special; it is
+just a way of writing a list.
+
+A reasonable mathematical model for the observations is that
+
+$$(\text{observed value of } g) = (\text{true value of } g) + \text{error},$$
+
+where the error tends to be different for each measurement.
+
+Why make so many measurements?
+
+- To increase accuracy: Errors in different measurements tend to average out to some extent, so one can estimate $g$ better using an average of a large number of measurements than one can using a single measurement.
+- To assess uncertainty: The variability of the repeated measurements gives an estimate of the uncertainty of a single measurement, or of the average of the measurements.
+- To monitor the experiment: If the fluctuations get larger, or a measurement is "unusual," something might be going wrong with the experiment.
+
+In later chapters, we will illustrate the first and second points using these data.
+
+## Frequency Tables
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=731&end=1044 title="Frequency Tables" >}}
+
+It is hard to learn much by looking at this list;
+it would be helpful to summarize the values in a more transparent way.
+We shall begin by constructing a
+[frequency table](gloss.htm#frequency_table).
+A [frequency table](gloss.htm#frequency_table)
+lists the frequency (number) or
+relative frequency (fraction) of observations that fall in various ranges,
+called "[class intervals](gloss.htm#class_interval)."
+We also need an
+"[endpoint convention](gloss.htm#endpoint_convention)"
+to be able to construct
+a [frequency table](gloss.htm#frequency_table):
+If an observation falls on the
+boundary between two [class intervals](gloss.htm#class_interval), in which
+class interval do we count the observation?
+The two standard choices are always to include
+the left boundary and exclude the right, except for the rightmost class interval, or
+always to include the right boundary and exclude the left, except for the
+leftmost class interval.
+
+Let us construct a relative frequency table for the gravity data.
+There are no
+hard-and-fast rules for determining appropriate
+[class intervals](gloss.htm#class_interval), and the impression one gets of how the data are distributed depends on the
+number and location of the intervals (more on this later in this chapter).
+We shall use the following nine class intervals:
+
+- −160 (inclusive) to −110 (inclusive)
+- −110 (exclusive) to −90 (inclusive)
+- −90 (exclusive) to −70 (inclusive)
+- −70 (exclusive) to −40 (inclusive)
+- −40 (exclusive) to −10 (inclusive)
+- −10 (exclusive) to 20 (inclusive)
+- 20 (exclusive) to 50 (inclusive)
+- 50 (exclusive) to 80 (inclusive)
+- 80 (exclusive) to 160 (inclusive)
+
+Note that the endpoint convention here is always to include the right
+boundary and exclude the left, except for the leftmost class interval.
+To construct the frequency table, the next step is to count the number
+of data that fall in each [class interval](gloss.htm#class_interval).
+Counting is much easier if we sort the data.
+The table below lists the gravity data sorted into increasing order:
+
+| | | | | | | | | | |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| -152 | -132 | -132 | -128 | -122 | -121 | -120 | -113 | -112 | -108 |
+| -107 | -107 | -106 | -106 | -106 | -105 | -101 | -101 | -99 | -89 |
+| -87 | -86 | -83 | -83 | -80 | -80 | -79 | -74 | -74 | -74 |
+| -71 | -71 | -69 | -67 | -67 | -65 | -62 | -61 | -60 | -60 |
+| -59 | -55 | -54 | -54 | -52 | -50 | -49 | -48 | -48 | -47 |
+| -44 | -43 | -38 | -37 | -35 | -34 | -34 | -29 | -27 | -27 |
+| -26 | -24 | -24 | -19 | -19 | -19 | -19 | -18 | -16 | -16 |
+| -15 | -14 | -14 | -12 | -12 | -12 | -4 | -1 | 0 | 0 |
+| 1 | 2 | 7 | 14 | 14 | 14 | 18 | 18 | 19 | 24 |
+| 29 | 29 | 41 | 45 | 51 | 72 | 150 | 155 | | |
+
+: Sorted gravity data.
+
+The first class interval contains the 9 observations
+
+$$\{−152, −132, −132, −128, −122, −121, −120, −113, −112\}.$$
+
+Nine is 9% of 100, so the relative frequency of observations in the
+first class interval is 9%.
+The second class interval contains the 10 observations
+
+$$\{−108, −107, −107, −106, −106, −106, −105, −101, −101, −99\}.$$
+
+Ten is 10% of 100, so the relative frequency of
+observations in the second class interval is 10%.
+The last class interval contains the two observations {150, 155}.
+Two is 2% of 100, so the relative frequency of observations in
+the last class interval is 2%.
+
+The following exercise checks your understanding of frequency tables.
+
+{{< sticigui-surveyjs file="exercises/ch3_6.json" >}}
+
+## Histograms
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=1044&end=1475 title="Histograms" >}}
+
+The frequency table is easier to interpret than the raw data, but it is
+still hard to get an overall impression of the data from it.
+The [histogram](gloss.htm#histogram) is an
+excellent tool for studying the
+distribution of a list of quantitative measurements.
+A [histogram](gloss.htm#histogram)
+is a way of visualizing a frequency table graphically—of making a picture from a
+frequency table.
+The fraction of data in each class interval is represented by a rectangle
+([bin](gloss.htm#bin)) whose base is the class interval
+and whose area is the
+fraction of data (relative frequency of data) that fall in the class interval:
+
+$$\text{area of bin} = \text{fraction of data in class interval} = \frac{\text{\#observations in the class interval}}{\text{total number of observations}}.$$
+
+so that
+
+$$\text{height of the bin} = \frac{\text{fraction of data in the class interval}}{\text{width of class interval}}$$
+
+![Elements of a histogram](Graphics/hist.jpg "Elements of a histogram")
+
+The key to a [histogram](gloss.htm#histogram) is that it is
+the *area* of the [bin](gloss.htm#bin), not the height
+of the [bin](gloss.htm#bin), that represents the relative frequency of data
+in the bin.
+The area of the [bin](gloss.htm#bin) is proportional to the relative
+frequency of observations in
+the [class interval](gloss.htm#class_interval).
+The horizontal axis of a histogram needs a scale with units.
+The vertical axis of a histogram always has units of percent per
+unit of the horizontal axis, so that the areas of bins have units of
+
+$$(horizontal units) × (percent per horizontal unit) = percent.$$
+
+The scale of the vertical axis is automatically
+imposed by the fact that the total area of the
+[histogram](gloss.htm#histogram)
+must be 100% (100% of the data fall somewhere on the plot).
+The vertical scale is called a
+[density scale](gloss.htm#density).
+The height of a [bin](gloss.htm#bin)
+is the [density](gloss.htm#density) of
+observations in the [bin](gloss.htm#bin): the percentage of observations
+in the bin per unit of the
+horizontal axis.
+Typically it is *not* the percentage of observations in the bin.
+
+A [histogram](gloss.htm#histogram) is not the same as
+a *bar chart*: In a bar chart, the height of a rectangle (bar), rather
+than the area of the bar, indicates the relative frequency of observations.
+The width of the bar does not matter; it does not even need to have units.
+This makes bar charts especially useful for displaying
+[categorical](gloss.htm#categorical) and
+[qualitative](gloss.htm#qualitative) data,
+where the horizontal axis does not have a scale—it is just a way to separate
+groups.
+[Histograms](gloss.htm#histogram) are more appropriate for
+[quantitative](gloss.htm#quantitative) data.
+
+For the gravity data, the first
+[class interval](gloss.htm#class_interval) is from −160 to
+−110, and has 9% of the data.
+The height of the corresponding [bin](gloss.htm#bin) is thus
+
+$$\frac{9\%}{\text{width of bin}} = \frac{9\%}{- 110 - (-160) \text{ measurement units}} = \frac{9\%}{50 \text{ measurement units}} = 0.18\% \text{ per unit}.$$
+
+(The unit is 10⁻⁸m/s².)
+
+The second class interval has width (−90 − (−110)) = 20
+units, and has 10% of the observations, so the height of the
+corresponding bin is
+
+$$\frac{10\%}{20 \text{ units}} = 0.5\% \text{ per unit}.$$
+
+The last class interval has width 160−80 = 80 units,
+and has 2% of the observations, so the height of the last bin is
+
+$$\frac{2\%}{80 \text{ units}} = 0.025\% \text{ per unit}.$$
+
+The height of the last bin is one twentieth (.025/.5) that of the second bin.
+
+The relative frequency of observations in the second class interval is five
+times that of the last class interval (10% versus 2%), so the area of the second bin is
+five times that of the last bin.
+The width of the second class interval is 1/4 the width
+of the last class interval (−90−(−110) = 20, versus 160−80 = 80; 20 is 1/4 of 80).
+Thus the second bin is 5×4=20 times taller than the last bin.
+
+The figure below is a histogram of the $g$ deviations corresponding to these class
+intervals (multiplied by 10⁸ as before):
+
+{{< include figures/3-2/index.qmd >}}
+
+This is the first interactive visualization in this book—there are many
+more to come. It has controls that you can manipulate.
+For example, try moving the range sliders near the bottom of the plot.
+If you set the `Area from` value lower than the `Area to` value, part of the
+histogram will change color from blue to yellow, and the area of the
+yellow part will be displayed under the histogram, as "Selected area."
+
+### Skewness and Modes
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=1475&end=2070 title="Skewness and Modes" >}}
+
+The word "[distribution](gloss.htm#distribution)"
+refers to how numerical data are "distributed" on the real line.
+We can discover qualitative features of the
+[distribution](gloss.htm#distribution) of the data from the
+[histogram](gloss.htm#histogram).
+The "center" of the data is around −50 to −40.
+Most of the observations are between −110 and 20.
+The observations are not distributed
+[symmetrically](gloss.htm#symmetric_distribution) around the
+center: They continue farther to the right of the center than to the left of the center.
+The distribution is said to be [skewed](gloss.htm#skewed) to the right,
+*right-skewed* or to have a *long right tail*.
+Conversely, when the data are more spread out to the left of the
+"center" than to the right, the distribution is said to be
+*[skewed](gloss.htm#skewed) to the
+left*, *left-skewed,* or to have a *long left tail*.
+
+Distributions of prices and incomes tend to be skewed to the right.
+For example, consider house prices. Most homes cost under $100,000 to $200,000
+(depending on the locality), but a relatively small number of homes sell for tens of
+millions of dollars. Similarly, most family annual incomes are under $60,000, but a small
+number of people have annual incomes exceeding tens of millions of dollars. Age distributions
+also tend to be skewed to the right; for example, there is unlikely to be anyone in this
+class younger than 14 years old, and most are between 17 and 22, but a few "returning
+students" are likely to be in their 30s, 40s or older.
+
+This histogram of the gravity data consists of only one "bump:" it is
+said to be [unimodal](gloss.htm#unimodal). In general, a
+[histogram](gloss.htm#histogram) is said to be
+[multimodal](gloss.htm#multimodal) if it has more than one bump, and
+in particular [bimodal](gloss.htm#bimodal) if it has two bumps.
+
+The following exercises check your ability to use the histogram applet in
+the figure above.
+
+{{< sticigui-surveyjs file="exercises/ch3_7.json" >}}
+
+{{< sticigui-surveyjs file="exercises/ch3_8.json" >}}
+
+## Percentiles and Quartiles
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=2398&end=2683 title="Percentiles and Quartiles" >}}
+
+Another way to characterize a list of numbers is using
+[percentiles](gloss.htm#percentile).
+The *p*th percentile of a list is the
+smallest number that is at least as large as *p*% of the numbers in the list.
+For example, 10% of the gravity data are less than or equal to −108, so −108
+is the 10th percentile of the gravity data.
+The smallest number that is at least as large as 13% of
+the data is −106, so −106 is the 13th percentile of the data,
+even though in fact 15% of the observations are less than or equal to −106.
+The 13th through 15th percentiles of these data are all −106.
+*It is much easier to find
+percentiles from the sorted list than from the original!*
+
+Some percentiles have special names, as shown in the table below:
+
+| Percentile | Special Name | Abbreviation |
+|---|---|---|
+| 25th | Lower Quartile | LQ |
+| 50th | Median | M or MED |
+| 75th | Upper Quartile | UQ |
+
+: Common named percentiles.
+
+The lower quartile is the 25th percentile: the smallest number that is at least as
+large as 25% of the data.
+The median is the 50th percentile: the smallest number that is at least as
+large as half the data.
+We just saw that the median of the gravity data is −47.
+The upper quartile is the 75th percentile: the smallest number that is at least
+as large as 75% of the data.
+Approximately half the observations are between the lower quartile and the upper quartile.
+
+The following exercises verify that you can calculate percentiles.
+
+{{< sticigui-surveyjs file="exercises/ch3_9.json" >}}
+
+{{< sticigui-surveyjs file="exercises/ch3_10.json" >}}
+
+### Estimating Percentiles from Histograms
+
+{{< video https://www.youtube.com/embed/WWAvdTjW13A?start=2683&end=3020 title="Estimating Percentiles from Histograms" >}}
+
+To find a [percentile](gloss.htm#percentile) of a
+set of measurements exactly, one needs the original data.
+In plotting a [histogram](gloss.htm#histogram), the data are grouped into
+[class intervals](gloss.htm#class_interval), which typically
+makes it impossible to find exact [percentiles](gloss.htm#percentile)
+from a histogram.
+A histogram tells you the percentage of data each class interval contains, but not where in the class
+interval each datum is.
+However, one can find *approximate*
+[percentiles](gloss.htm#percentile)
+from a [histogram](gloss.htm#histogram): The *p*th
+[percentile](gloss.htm#percentile)
+is approximately the point on the horizontal axis such that
+the area under the [histogram](gloss.htm#histogram) to the left of the
+point is *p*%.
+The figure below is another histogram of the Piñon Flat $g$ data, with
+equal-width class intervals:
+
+![Histogram of deviations of g using equal-width bins](Graphics/histtoon.jpg "Histogram of deviations of g using equal-width bin")
+
+This histogram has equal-width [class intervals](gloss.htm#class_interval).
+You can change the number of bins by typing a different value into the box labeled
+"Bins" and
+pressing the Return or Enter key—but don't do that yet.
+If you click the List Data button, a new
+window will pop up with a listing of the 100 numbers in the gravity data set.
+This applet also
+displays two numbers that are defined in other chapters:
+the [mean](gloss.htm#mean)
+(average) and the [SD](gloss.htm#sd) (standard deviation).
+The range −152 to −44.2 is highlighted when you first
+open this page, and the figure shows that the area under the histogram in that range is 50%.
+Our estimate of the median from the histogram thus would be −44.2.
+We saw earlier in this chapter that the median of the data is −47:
+The estimate of the median from the histogram is off by a bit
+because the data have been grouped into
+[class intervals](gloss.htm#class_interval) in the
+[histogram](gloss.htm#histogram).
+
+Type −47 into the **to** box, and press Return or Enter.
+The selected area under the histogram should show 48%.
+The difference between 48% and 50% is also caused by the grouping of data into
+[class intervals](gloss.htm#class_interval) in the histogram.
+
+The following exercise lets you practice estimating percentiles from histograms.
+
+Now change the number of bins from 9 to 30 by typing 30 into
+the **Bins** box and pressing Return or Enter.
+The histogram is now rougher—it has more "bumps" or modes.
+The appearance of a histogram depends crucially on how the class intervals are chosen.
+If you estimate percentiles from the histogram with 30 bins and with 9 bins,
+you will get different answers.
+
+## Summary
+
+This chapter introduced *variables*, and distinctions among variables, according to the
+kinds of values the variables can take: *quantitative*,
+*qualitative*, and *categorical*.
+Quantitative variables are classified further as either *discrete* or
+*continuous*.
+Data—observed values of variables—can be presented in many ways.
+Tables often are easier to understand than words.
+When the number of data is large, looking at the data provides little insight,
+but summaries of the data can help.
+Quantitative data can be summarized using *frequency tables*.
+Constructing a frequency table requires specifying *class intervals* and an
+*endpoint convention*.
+Frequency tables can be presented graphically as *histograms*, which give an
+impression of the distribution of the data.
+In a histogram, relative frequency is represented by area.
+Characteristics of the distribution that can be gleaned from a histogram include
+*symmetry*, *skewness*, and the number and location of *modes*.
+However, the appearance of those characteristics in a histogram depends on
+the number and location of the class intervals.
+*Percentiles* are another way to summarize the distribution of a list.
+Calculating percentiles exactly requires the original data, but percentiles
+can be estimated approximately from histograms.
+
+## Key Terms
+
+- applet
+- bias
+- bimodal
+- bin
+- categorical variable
+- class interval
+- continuous
+- countable
+- density
+- density scale
+- deviation
+- distribution
+- discrete
+- endpoint convention
+- frequency table
+- histogram
+- lower quartile
+- median
+- multimodal
+- ordinal variable
+- percentile
+- qualitative variable
+- quantitative variable
+- quartile
+- skewed
+- symmetrically
+- unimodal
+- upper quartile
+- variable

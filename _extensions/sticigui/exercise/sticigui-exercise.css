@@ -1,0 +1,82 @@
+/* Extension-specific styles for sticigui-exercise */
+.callout.callout-tip.callout-appearance-minimal .callout-body {
+  padding-bottom: 0.5em;
+}
+.logic-feedback {
+  margin-top: 0.5em;
+}
+.logic-solution {
+  margin-top: 0.5em;
+}
+
+/* Layout: prompt should be on its own line, then input + buttons inline */
+.logic-exercise-prompt {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.logic-exercise-input {
+  display: inline-block;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+
+.logic-exercise-select {
+  width: auto;
+  min-width: 120px;
+  display: inline-block !important;
+}
+
+.logic-exercise-btn-group {
+  display: inline-flex;
+}
+
+.logic-exercise-btn {
+  margin-right: 0;
+}
+
+.check-answer-btn, .solution-btn {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Multi-display layout for multiple prompt/widget pairs */
+.logic-exercise-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logic-exercise-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Special layout for checkbox inputs */
+.logic-exercise-item.checkbox-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.logic-exercise-item.checkbox-input .logic-exercise-input {
+  display: block;
+  margin-right: 0;
+  margin-bottom: 1em;
+}
+
+.logic-exercise-item.checkbox-input .check-answer-btn,
+.logic-exercise-item.checkbox-input .solution-btn {
+  align-self: flex-start;
+  margin-right: 0.5em;
+}
+
+/* Checkbox group styling */
+.logic-exercise-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.logic-exercise-checkbox-group .form-check {
+  margin-bottom: 0;
+}

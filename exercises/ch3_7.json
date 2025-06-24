@@ -1,0 +1,27 @@
+{
+  "title": "Exercise 3-7",
+  "description": "The area under the histogram between −120 and 10 is",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "text",
+      "name": "histogram_area",
+      "title": "The area under the histogram between −120 and 10 is (Enter as a percentage)",
+      "inputType": "text",
+      "correctAnswer": "79.1%",
+      "validators": [
+        {
+          "type": "regex",
+          "regex": "^(79(\\.0*)?|79\\.[0-2])%?$",
+          "text": "Please enter a value between 79% and 79.2%."
+        }
+      ],
+      "description": "The answer is 79.1%. Just type the endpoints into the boxes in the histogram tool."
+    }
+  ]
+}

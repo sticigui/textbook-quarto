@@ -1,0 +1,31 @@
+{
+  "title": "Exercise 3-2",
+  "description": "What fraction of WD customers are also customers of WBH?",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "text",
+      "name": "fraction_wd_wbh",
+      "title": "What fraction of WD customers are also customers of WBH? (Enter a decimal value)",
+      "inputType": "number",
+      "correctAnswer": {
+        "min": 0.704,
+        "max": 0.705
+      },
+      "validators": [
+        {
+          "type": "numeric",
+          "minValue": 0.704,
+          "maxValue": 0.705,
+          "text": "Please enter a value between 0.704 and 0.705."
+        }
+      ],
+      "description": "WD and WBH have 93 customers in common, and WD has 132 customers in all, so the percentage of WD customers who are customers of WBH is 93/132×100%% = 70.45%%."
+    }
+  ]
+}

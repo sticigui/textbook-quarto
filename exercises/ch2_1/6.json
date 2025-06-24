@@ -1,0 +1,18 @@
+{
+  "title": "Exercise 2-1",
+  "pages": [
+    {
+      "elements": [
+        { "type": "html", "name": "prompt_html", "html": "If A then B. Not B. Therefore, not A." },
+        { "type": "radiogroup", "name": "answer", "title": "Select one:", "choices": ["Valid", "Fallacious"], "correctAnswer": "Valid", "isRequired": true },
+        { "type": "html", "name": "explanation_html", "visibleIf": "{answer} = {answer}", "html": "<div class='explanation'>This is <a class=\"glossRef\" href=\"gloss.htm#denying_the_consequent\">denying the consequent</a>.</div>" }
+      ]
+    }
+  ],
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true
+}

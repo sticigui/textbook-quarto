@@ -1,0 +1,52 @@
+---
+#title: "Index"
+format: html
+---
+
+# SticiGui Table of Contents {.unnumbered}
+
+Welcome to SticiGui, an interactive, web-based resource for introductory statistics, logic, and reasoning. Use the table of contents below to explore chapters, tools, and resources.
+
+> **Note**
+> This site provides interactive materials for learning statistics and related topics. For best results, use a modern web browser.
+
+## Chapters
+
+- [Preface](preface.qmd)
+- [How to use these online materials](howto.htm#how_to_use)
+- [Reasoning](reasoning.htm#rules_of_reasoning)
+- [Histograms](histograms.htm#introduction)
+- [Location (mean, median, mode)](location.htm#location)
+- [Scatterplots](scatterplots.htm#multivariate)
+- [Association](association.htm#association)
+- [Correlation](correlation.htm#correlation)
+- [Computing the Correlation Coefficient](computeR.htm#computing_corr)
+- [Regression](regression.htm#sd_line)
+- [Regression Diagnostics](regressionDiagnostics.htm#residual_plot)
+- [Regression Errors](regressionErrors.htm#rms_error_of_regression)
+- [Counting](counting.htm#counting)
+- [Probability Philosophy](probabilityPhilosophy.htm#theories_of_probability)
+- [Sets](sets.htm#set_theory)
+- [Categorical Logic](categoricalLogic.htm#sets_categories)
+- [Logic](logic.htm#operations)
+- [Probability Axioms](probabilityAxioms.htm#axioms_of_probability)
+- [Monty Hall Problem](montyHall.htm#background)
+- [Monty Hall Test](montyHallTest.htm#introduction)
+- [Random Variables](randomVariables.htm#random_variable)
+- [Expectation](expectation.htm#law_of_large_numbers)
+- [Standard Error](standardError.htm#expectation_of_transformation)
+- [Central Limit Theorem](clt.htm#norm_approx)
+- [Sampling](sampling.htm#params_stats)
+- [Estimation](estimation.htm#estimator_error)
+- [Confidence Intervals](confidenceIntervals.htm#confidence_intervals)
+- [Testing](testing.htm#hypothesis_testing)
+- [Experiments](experiments.htm#method_of_comparison)
+- [Percentage Tests](percentageTests.htm#fisher_dependent)
+- [z Test and t Test](zTest.htm#z_tests)
+- [Chi-Square](chiSquare.htm#multinomial)
+- [Bibliography](references.htm)
+- [Glossary](gloss.htm)
+
+---
+
+*SticiGui is developed and maintained by Philip B. Stark and contributors. For more information, see the [Preface](preface.qmd).*

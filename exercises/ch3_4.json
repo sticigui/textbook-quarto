@@ -1,0 +1,31 @@
+{
+  "title": "Exercise 3-4",
+  "description": "What fraction of WD customers outside the Bay Area are customers of WBH?",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "text",
+      "name": "fraction_wd_outside_bay_wbh",
+      "title": "What fraction of WD customers outside the Bay Area are customers of WBH? (Enter a decimal value)",
+      "inputType": "number",
+      "correctAnswer": {
+        "min": 0.9999,
+        "max": 1.0001
+      },
+      "validators": [
+        {
+          "type": "numeric",
+          "minValue": 0.9999,
+          "maxValue": 1.0001,
+          "text": "Please enter a value between 0.9999 and 1.0001."
+        }
+      ],
+      "description": "All 8 of WD's customers outside the Bay Area are WBH customers: 100%%."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 2-2",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise3",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "ex3",
+          "title": "It is warm. Therefore, it is sunny or it is warm.",
+          "choices": ["Valid", "Fallacious"],
+          "correctAnswer": "Valid",
+          "description": "A or B is true if either A is true or B is true (or both)."
+        }
+      ]
+    }
+  ]
+}

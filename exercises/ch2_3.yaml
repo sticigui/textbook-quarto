@@ -1,0 +1,43 @@
+# Multi-display logic exercises
+ch2_3:
+  multi_display: true
+  question: |
+    Does the following argument commit any informal fallacies?
+  exercises:
+    - inputs:
+        - prompt: |
+            Lung cancer rates for people who live near power lines are
+            indistinguishable from lung cancer rates for people who live far
+            from power lines. Therefore, if living near power lines increases
+            the risk of lung cancer, it does not increase the risk by much.
+          type: select
+          choices: ['No informal fallacy','One or more informal fallacies']
+          answer: "No informal fallacy"
+          explanation: "This is the definition of 'not.'"
+        - prompt: "Which of the following informal fallacies does the argument commit?"
+          type: checkbox
+          choices:
+            - guilt by association
+            - begs the question
+            - inappropriate appeal to authority
+            - hasty generalization
+            - weak analogy
+            - slippery slope
+            - attacking the motive
+            - inconsistency
+            - equivocation
+            - questionable cause
+            - appeal to ignorance
+            - bandwagon argument
+            - loaded question
+            - look who's talking
+            - red herring
+            - two wrongs make a right
+            - appeal to force
+            - false dichotomy
+            - appeal to pity
+            - personal attack
+            - straw man
+            - none of the above
+          answer: none of the above
+          explanation: "This is the definition of 'and.'"

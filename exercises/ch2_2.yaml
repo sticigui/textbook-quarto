@@ -1,0 +1,91 @@
+ch2_2:
+  question: |
+    Identify whether the following sequence of statements is valid reasoning or a formal fallacy.
+  exercises:
+    - random: true  # Exercise-level randomization for all inputs
+      inputs:
+        - prompt: "It is warm. Therefore, it is not cold."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is the law of the excluded middle: it cannot be both warm and cold. The structure of the argument is A. Therefore, not (not A)."
+        - prompt: "It is sunny. It is warm. Therefore, it is sunny and warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is the definition of and."
+        - prompt: "It is warm. Therefore, it is sunny or it is warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "A or B is true if either A is true or B is true (or both)."
+        - prompt: "It is sunny or it is warm. It is cold. Therefore, it is sunny."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is of the form A or B. Not B. Therefore, A. It is an example of denying the disjunct."
+        - prompt: "If it is sunny then it is warm. It is sunny. Therefore, it is warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is an example of affirming the precedent, modus ponendo ponens."
+        - prompt: "If it is sunny then it is warm. It is not warm. Therefore, it is not sunny."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is an example of denying the consequent, modus tollendo tollens."
+        - prompt: "It is not sunny or warm. Therefore, it is not sunny and it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is one of de Morgan's Laws."
+        - prompt: "It is not sunny and warm. Therefore, it is not sunny or it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is one of de Morgan's Laws."
+        - prompt: "It is sunny or not warm. It is warm. Therefore, it is sunny."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is of the form A or B. Not B. Therefore, A, where B is 'not warm'. The argument is an example of denying the disjunct."
+        - prompt: "It is not sunny or warm. Therefore, it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Valid
+          explanation: "This is one of de Morgan's Laws."
+        - prompt: "It is sunny or warm. It is sunny. Therefore, it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is an example of affirming the disjunct."
+        - prompt: "It is not sunny and warm. Therefore, it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is an example of denying the conjunct."
+        - prompt: "If it is sunny then it is warm. It is not sunny. Therefore, it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is an example of denying the antecedent."
+        - prompt: "If it is sunny then it is warm. It is warm. Therefore, it is sunny."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is an example of affirming the consequent."
+        - prompt: "It is not sunny and warm. Therefore, it is not sunny and it is not warm."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is related to denying the conjunct. We know that not both A and B are true. Both could be false, but it is also possible that exactly one of them is true."
+        - prompt: "If it is sunny then it is warm. It is dry. Therefore, it is sunny."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is a non sequitur of evidence."
+        - prompt: "If it is sunny then it is warm. It is sunny. Therefore, it is dry."
+          type: button
+          choices: [Valid, Fallacious]
+          answer: Fallacious
+          explanation: "This is a non sequitur of relevance."

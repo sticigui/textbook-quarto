@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 2-2",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise1",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "ex1",
+          "title": "It is warm. Therefore, it is not cold.",
+          "choices": ["Valid", "Fallacious"],
+          "correctAnswer": "Valid",
+          "description": "This is the law of the excluded middle: it cannot be both warm and cold. The structure of the argument is A. Therefore, not (not A)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Exercise 2-1",
+  "pages": [
+    {
+      "elements": [
+        { "type": "html", "name": "prompt_html", "html": "A or not B.  B. Therefore, A." },
+        { "type": "radiogroup", "name": "answer", "title": "Select one:", "choices": ["Valid", "Fallacious"], "correctAnswer": "Valid", "isRequired": true },
+        { "type": "html", "name": "explanation_html", "visibleIf": "{answer} = {answer}", "html": "<div class='explanation'>This is the definition of 'or' applied to A and not B. If either A is true or B is false, and B is true, then A must be false.</div>" }
+      ]
+    }
+  ],
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true
+}

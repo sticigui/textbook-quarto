@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 2-2",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise8",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "ex8",
+          "title": "It is not sunny and warm. Therefore, it is not sunny or it is not warm.",
+          "choices": ["Valid", "Fallacious"],
+          "correctAnswer": "Valid",
+          "description": "This is one of de Morgan's Laws."
+        }
+      ]
+    }
+  ]
+}

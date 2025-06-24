@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 2-2",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise4",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "ex4",
+          "title": "It is sunny or it is warm. It is cold. Therefore, it is sunny.",
+          "choices": ["Valid", "Fallacious"],
+          "correctAnswer": "Valid",
+          "description": "This is of the form A or B. Not B. Therefore, A. It is an example of denying the disjunct."
+        }
+      ]
+    }
+  ]
+}

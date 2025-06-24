@@ -1,0 +1,58 @@
+{
+  "title": "Exercise 2-3",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise8",
+      "elements": [
+        {
+          "type": "html",
+          "name": "argument_text",
+          "html": "Software companies have sold millions of copies of filtering software designed to prevent children from encountering pornography on the Internet. Therefore, filtering software is effective at preventing children from encountering pornography on the Internet."
+        },
+        {
+          "type": "radiogroup",
+          "name": "fallacy_presence",
+          "title": "Does the following argument commit any informal fallacies?",
+          "choices": ["no informal fallacy", "one or more informal fallacies"],
+          "correctAnswer": "one or more informal fallacies"
+        },
+        {
+          "type": "checkbox",
+          "name": "fallacy_type",
+          "title": "Which of the following informal fallacies does the argument commit?",
+          "choices": [
+            "appeal to force",
+            "appeal to ignorance",
+            "appeal to pity",
+            "attacking the motive",
+            "bandwagon argument",
+            "begs the question",
+            "equivocation",
+            "false dichotomy",
+            "guilt by association",
+            "hasty generalization",
+            "inappropriate appeal to authority",
+            "inconsistency",
+            "loaded question",
+            "look who's talking",
+            "personal attack",
+            "questionable cause",
+            "red herring",
+            "slippery slope",
+            "straw man",
+            "two wrongs make a right",
+            "weak analogy",
+            "none of the above"
+          ],
+          "correctAnswer": ["bandwagon argument", "hasty generalization", "inappropriate appeal to authority", "red herring"]
+        }
+      ]
+    }
+  ]
+}

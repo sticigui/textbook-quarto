@@ -1,0 +1,31 @@
+{
+  "title": "Exercise 3-3",
+  "description": "The decimal fraction of WD customers outside the Bay Area is",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "text",
+      "name": "fraction_wd_outside_bay",
+      "title": "The decimal fraction of WD customers outside the Bay Area is (Enter a decimal value)",
+      "inputType": "number",
+      "correctAnswer": {
+        "min": 0.06,
+        "max": 0.061
+      },
+      "validators": [
+        {
+          "type": "numeric",
+          "minValue": 0.06,
+          "maxValue": 0.061,
+          "text": "Please enter a value between 0.06 and 0.061."
+        }
+      ],
+      "description": "WD has 8 customers outside the Bay Area, and 132 customers overall, so the (decimal) fraction that are outside the Bay Area is 8/132 = 0.0606."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Exercise 2-1",
+  "pages": [
+    {
+      "elements": [
+        { "type": "html", "name": "prompt_html", "html": "B. Therefore, A or B." },
+        { "type": "radiogroup", "name": "answer", "title": "Select one:", "choices": ["Valid", "Fallacious"], "correctAnswer": "Valid", "isRequired": true },
+        { "type": "html", "name": "explanation_html", "visibleIf": "{answer} = {answer}", "html": "<div class='explanation'>A or B is true if A is true, if B is true and if both A and B are true.</div>" }
+      ]
+    }
+  ],
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true
+}

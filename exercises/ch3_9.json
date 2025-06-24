@@ -1,0 +1,95 @@
+{
+  "title": "Exercise 3-9",
+  "description": "Fill in the missing percentiles for the gravity data:",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "calculatedValues": [
+    {
+      "name": "randomPercentile",
+      "expression": "randomGravityPercentile(51, 74)"
+    },
+    {
+      "name": "randomPercentileValue",
+      "expression": "getGravityPercentile({randomPercentile})"
+    },
+    {
+      "name": "ordinal25",
+      "expression": "getOrdinal(25)"
+    },
+    {
+      "name": "ordinal50",
+      "expression": "getOrdinal(50)"
+    },
+    {
+      "name": "ordinalRandom",
+      "expression": "getOrdinal({randomPercentile})"
+    },
+    {
+      "name": "ordinal75",
+      "expression": "getOrdinal(75)"
+    },
+    {
+      "name": "ordinal90",
+      "expression": "getOrdinal(90)"
+    },
+    {
+      "name": "ordinal905",
+      "expression": "getOrdinal(90.5)"
+    }
+  ],
+  "elements": [
+    {
+      "type": "panel",
+      "name": "percentile_panel",
+      //"title": "Percentile Table",
+      "elements": [
+        {
+          "type": "text",
+          "name": "p25",
+          "title": "{ordinal25}:",
+          "titleLocation": "left",
+          "correctAnswer": "-80"
+        },
+        {
+          "type": "text",
+          "name": "p50",
+          "title": "{ordinal50}:",
+          "titleLocation": "left",
+          "correctAnswer": "-47"
+        },
+        {
+          "type": "text",
+          "name": "pRandom",
+          "title": "{ordinalRandom}:",
+          "titleLocation": "left",
+          "correctAnswer": "{randomPercentileValue}"
+        },
+        {
+          "type": "text",
+          "name": "p75",
+          "title": "{ordinal75}:",
+          "titleLocation": "left",
+          "correctAnswer": "-12"
+        },
+        {
+          "type": "text",
+          "name": "p90",
+          "title": "{ordinal90}:",
+          "titleLocation": "left",
+          "correctAnswer": "18"
+        },
+        {
+          "type": "text",
+          "name": "p905",
+          "title": "{ordinal905}:",
+          "titleLocation": "left",
+          "correctAnswer": "19"
+        }
+      ]
+    }
+  ]
+}

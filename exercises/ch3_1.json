@@ -1,0 +1,62 @@
+{
+  "title": "Exercise 3-1",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "ch3_1",
+      "elements": [
+        {
+          "type": "html",
+          "name": "instructions",
+          "html": "<span class='qSpan'>Identify the type of each variable.</span>"
+        },
+        {
+          "type": "dropdown",
+          "name": "q1",
+          "title": "Species of tree: Oak, Pine, or Elm is a ____ variable.",
+          "choices": [
+            "Categorical",
+            "Continuous quantitative",
+            "Discrete quantitative",
+            "Qualitative ordinal"
+          ],
+          "correctAnswer": "Categorical"
+        },
+        {
+          "type": "dropdown",
+          "name": "q2",
+          "title": "Per capita income in 100 countries, in $US is a ____ variable.",
+          "choices": [
+            "Categorical",
+            "Continuous quantitative",
+            "Discrete quantitative",
+            "Qualitative ordinal"
+          ],
+          "correctAnswer": ["Continuous quantitative", "Discrete quantitative"]
+        },
+        {
+          "type": "dropdown",
+          "name": "q3",
+          "title": "Weight: under 100 lbs., 100–200 lbs., over 200 lbs. is a ____ variable.",
+          "choices": [
+            "Categorical",
+            "Continuous quantitative",
+            "Discrete quantitative",
+            "Qualitative ordinal"
+          ],
+          "correctAnswer": "Qualitative ordinal"
+        },
+        {
+          "type": "html",
+          "name": "explanation_html",
+          "html": "<p>(Selected questions.) The type of tree is a categorical variable without a natural order—it does not make sense to say that &quot;Elm&quot; is larger than &quot;Oak.&quot; Per-capita incomes in different countries could be viewed as a discrete or continuous quantitative variable. Certainly, the number of people in a country is discrete (it is an integer), and if you view money as having a smallest unit (for example, a cent in the USA), then per-capita income is a rational number (a fraction). Because fractions are <a class=\"glossRef\" href=\"gloss.htm#countable\">countable</a>, per-capita income would be discrete. For all practical purposes, however, per-capita income could be treated as a continuous quantitative variable. Weight, divided into ranges, is an ordinal variable: someone whose weight is in the range 100 lbs to 200 lbs. weighs more than someone whose weight is less than 100 lbs. Weight to the nearest pound is an integer, so that variable is discrete. There is a smallest unit of currency in every country, so bank account balances are discrete.</p>"
+        }
+      ]
+    }
+  ]
+}

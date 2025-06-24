@@ -1,0 +1,23 @@
+{
+  "title": "Exercise 3-5",
+  "description": "Fill in the missing numbers in the following table:",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "html",
+      "name": "grid_table",
+      "html": "<table class='sticigui-exercise-table'><tr><th>Customers of WD or WBH</th><th>Customer of WBH</th><th>Not Customer of WBH</th></tr><tr><th>Customer of WD</th><td><input type='number' id='cell_1_1' class='table-input' aria-label='Customers of both WD and WBH' /></td><td><input type='number' id='cell_1_2' class='table-input' aria-label='Customers of WD but not WBH' /></td></tr><tr><th>Not Customer of WD</th><td><input type='number' id='cell_2_1' class='table-input' aria-label='Customers of WBH but not WD' /></td><td class='table-readonly'>0</td></tr></table><p><em>The number of customers WD and WBH have in common is 93. The number of customers of WD who are not customers of WBH is 132−93 = 39. WBH has 3310 customers in all, of whom 93 are customers of WD, so the number of customers of WBH who are not customers of WD is 3310−93 = 3217.</em></p>",
+      "correctAnswers": {
+        "cell_1_1": 93,
+        "cell_1_2": 39,
+        "cell_2_1": 3217
+      },
+      "description": "Based on the given information:<br>• Both WD and WBH customers: 93<br>• WD customers who are not WBH customers: 132 - 93 = 39<br>• WBH customers who are not WD customers: 3310 - 93 = 3217"
+    }
+  ]
+}

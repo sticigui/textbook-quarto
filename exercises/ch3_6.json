@@ -1,0 +1,26 @@
+{
+  "title": "Exercise 3-6",
+  "description": "Fill in the missing numbers in the following (relative) frequency table for the gravity data:",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "html",
+      "name": "frequency_table",
+      "html": "<table class='sticigui-exercise-table sticigui-frequency-table'><tr><th>Class<br/>Interval</th><th>Relative<br/>Frequency</th></tr><tr><td>−160 to −110</td><td class='table-readonly'>9%</td></tr><tr><td>−110 to −90</td><td class='table-readonly'>10%</td></tr><tr><td>−90 to −70</td><td><input type='text' id='freq_1' class='table-input' placeholder='?%' aria-label='Relative frequency for the interval -90 to -70' /></td></tr><tr><td>−70 to −40</td><td><input type='text' id='freq_2' class='table-input' placeholder='?%' aria-label='Relative frequency for the interval -70 to -40' /></td></tr><tr><td>−40 to −10</td><td><input type='text' id='freq_3' class='table-input' placeholder='?%' aria-label='Relative frequency for the interval -40 to -10' /></td></tr><tr><td>−10 to 20</td><td><input type='text' id='freq_4' class='table-input' placeholder='?%' aria-label='Relative frequency for the interval -10 to 20' /></td></tr><tr><td>20 to 50</td><td><input type='text' id='freq_5' class='table-input' placeholder='?%' aria-label='Relative frequency for the interval 20 to 50' /></td></tr><tr><td>50 to 80</td><td><input type='text' id='freq_6' class='table-input' placeholder='?%' aria-label='Relative frequency for the interval 50 to 80' /></td></tr><tr><td>80 to 160</td><td class='table-readonly'>2%</td></tr></table>",
+      "correctAnswers": {
+        "freq_1": "13%",
+        "freq_2": "20%",
+        "freq_3": "25%",
+        "freq_4": "14%",
+        "freq_5": "5%",
+        "freq_6": "2%"
+      },
+      "description": "The first missing entry is the percentage of values between −90 and −70. There are 13 data in that range: {−89, −87, −86, −83, −83, −80, −80, −79, −74, −74, −74, −71, −71}. Thirteen is 13% of 100, so the entry in the frequency table for the range −90 to −70 is 13%. Similarly, there are 20 observations in the range −70 to −40, so the corresponding entry in the frequency table is 20%. There are 25 observations in the range −40 to −10, so the corresponding entry is 25%. There are 14 observations between −10 and 20, so the corresponding entry is 14%. There are 5 observations between 20 and 50, so the corresponding entry is 5%. There are 2 observations between 50 and 80, so the corresponding entry is 2%. As a double check, we can add together all the percentages in the frequency table: they should total 100%. We have: 9% + 10% + 13% + 20% + 25% + 14% + 5% + 2% + 2% = 100%."
+    }
+  ]
+}

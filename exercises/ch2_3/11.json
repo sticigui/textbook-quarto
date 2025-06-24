@@ -1,0 +1,58 @@
+{
+  "title": "Exercise 2-3",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise11",
+      "elements": [
+        {
+          "type": "html",
+          "name": "argument_text",
+          "html": "Lung cancer rates for people who live near power lines are indistinguishable from lung cancer rates for people who live far from power lines. Therefore, if living near power lines increases the risk of lung cancer, it does not increase the risk by much."
+        },
+        {
+          "type": "radiogroup",
+          "name": "fallacy_presence",
+          "title": "Does the following argument commit any informal fallacies?",
+          "choices": ["no informal fallacy", "one or more informal fallacies"],
+          "correctAnswer": "no informal fallacy"
+        },
+        {
+          "type": "checkbox",
+          "name": "fallacy_type",
+          "title": "Which of the following informal fallacies does the argument commit?",
+          "choices": [
+            "appeal to force",
+            "appeal to ignorance",
+            "appeal to pity",
+            "attacking the motive",
+            "bandwagon argument",
+            "begs the question",
+            "equivocation",
+            "false dichotomy",
+            "guilt by association",
+            "hasty generalization",
+            "inappropriate appeal to authority",
+            "inconsistency",
+            "loaded question",
+            "look who's talking",
+            "personal attack",
+            "questionable cause",
+            "red herring",
+            "slippery slope",
+            "straw man",
+            "two wrongs make a right",
+            "weak analogy",
+            "none of the above"
+          ],
+          "correctAnswer": ["none of the above"]
+        }
+      ]
+    }
+  ]
+}

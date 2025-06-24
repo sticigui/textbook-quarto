@@ -1,0 +1,27 @@
+{
+  "title": "Exercise 3-8",
+  "description": "The area under the histogram between −160 and −43 is",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "questions": [
+    {
+      "type": "text",
+      "name": "histogram_area",
+      "title": "The area under the histogram between −160 and −43 is (Enter as a percentage)",
+      "inputType": "text",
+      "correctAnswer": "50%",
+      "validators": [
+        {
+          "type": "regex",
+          "regex": "^(49\\.9|50(\\.0*)?|50\\.1)%?$",
+          "text": "Please enter a value between 49.9% and 50.1%."
+        }
+      ],
+      "description": "The answer is 50%: type the endpoints into the boxes in the histogram tool."
+    }
+  ]
+}

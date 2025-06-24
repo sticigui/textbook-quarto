@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 2-2",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise15",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "ex15",
+          "title": "It is not sunny and warm. Therefore, it is not sunny and it is not warm.",
+          "choices": ["Valid", "Fallacious"],
+          "correctAnswer": "Fallacious",
+          "description": "This is related to denying the conjunct. We know that not both A and B are true. Both could be false, but it is also possible that exactly one of them is true."
+        }
+      ]
+    }
+  ]
+}

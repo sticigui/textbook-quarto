@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 2-2",
+  "showQuestionNumbers": "off",
+  "showProgressBar": "off",
+  "showNavigationButtons": false,
+  "showCompletedPage": false,
+  "checkErrorsMode": "onValueChanged",
+  "showCorrectAnswer": true,
+  "pages": [
+    {
+      "name": "exercise13",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "ex13",
+          "title": "If it is sunny then it is warm. It is not sunny. Therefore, it is not warm.",
+          "choices": ["Valid", "Fallacious"],
+          "correctAnswer": "Fallacious",
+          "description": "This is an example of denying the antecedent."
+        }
+      ]
+    }
+  ]
+}

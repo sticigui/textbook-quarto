@@ -1,0 +1,693 @@
+---
+title: "Reasoning and Fallacies"
+format: html
+number-sections: false
+#metadata-files:
+#  - exercises/ch2_1.yaml
+#  - exercises/ch2_2.yaml
+#  - exercises/ch2_3.yaml
+---
+
+This chapter reviews logical rules that produce valid arguments and common rule
+violations that lead to fallacies. Understanding fallacies helps us to avoid
+committing them and to recognize fallacious arguments made by others.
+
+Reasoning can be *inductive* or *deductive*. Deductive reasoning is what we call
+"logic" informally. It is a way of thinking mathematically about all kinds of
+things: Given a set of assumptions (premises), what must then be true? In
+contrast, inductive reasoning attempts to generalize from experience (data) to
+new situations: How strong is the evidence that something is true or false about
+the world? Inductive reasoning is inherently uncertain. Deductive reasoning—if
+logical—is as certain as mathematics can be. Much of the meat of Statistics,
+covered in other chapters, concerns inductive reasoning. Exceptional care is
+needed to draw reliable conclusions by inductive reasoning. And good inductive
+reasoning requires correct deductive reasoning, the subject of this chapter.
+
+Deductive reasoning that is mathematically correct (logical) is **valid**.
+Deductive reasoning that is incorrect (logically faulty, illogical) is
+**fallacious**. Reasoning can be valid even if the assumptions on which it is
+based are false. If reasoning is valid *and* based on true premises, it is
+**sound**.
+
+Many deductive and inductive arguments rely on statistical evidence. Even the
+best statistical evidence can lead to wrong conclusions if it is used in a
+fallacious argument. The difficulty many people have understanding statistics
+makes statistics especially effective "red herrings" to distract the listener.
+Moreover, statistics can give fallacious arguments an undeserved air of
+scientific precision.
+
+Fallacies have been studied at least since classical times.^[The ancient Greek
+philosopher Aristotle is generally credited with the first catalog of fallacies:
+He lists thirteen in *Sophistici Elenchi* (sophistical refutations), written in
+the fourth century BCE.] This chapter gives a loose taxonomy of fallacies.
+**Validity**, **soundness** and **formal fallacies** (which result from not
+following valid rules of logic or misapplying valid rules) are covered in more
+detail in the chapters on Logic and Categorical Logic, which covers reasoning
+about *categories* of things. The [post hoc ergo propter
+hoc](gloss.htm#post_hoc) fallacy is addressed in more detail in the chapter on
+Scatterplots. The [regression fallacy](gloss.htm#regression_fallacy) gets
+special attention in the chapter on Regression Errors. The [principle of
+insufficient reason](gloss.htm#principle_of_insufficient_reason), mentioned in
+the chapter on Probability Philosophy, is related to the [appeal to
+ignorance](gloss.htm#appeal_to_ignorance) fallacy. The [base rate
+fallacy](gloss.htm#base_rate_fallacy) and the [Prosecutor's
+fallacy](gloss.htm#base_rate_fallacy) are mentioned in the chapter on
+Probability Axioms. [Nonresponse bias](gloss.htm#nonresponse_bias) and sampling
+design, studied in the chapter on Sampling, is related to the **hasty
+generalization** fallacy. [Simpson's paradox](gloss.htm#simpson), a version of
+the **composition fallacy**, is covered in the chapter on Experiments.
+
+## Valid rules of reasoning {#rules_of_reasoning}
+
+### Arguments {#arguments}
+
+{{< video https://www.youtube.com/embed/mnbbRtFxWHA?start=3010&end=3235 >}}
+
+An **argument** is a sequence of statements, one of which is called the **conclusion**. The other statements are **premises** (assumptions). The argument presents the premises—collectively—as evidence that the conclusion is true. For instance, the following is an argument:
+
+::: {.callout-note appearance="minimal"}
+*If A is true then B is true.*
+*A is true.*
+*Therefore, B is true.*
+:::
+
+The **conclusion** is that *B is true*. The **premises** are *If A is true then B is true* and *A is true*. The premises support the conclusion that *B is true*. The word "therefore" is not part of the conclusion: It is a signal that the statement after it is the conclusion.^[A special symbol is often used to flag the conclusion of an argument. One symbol often used to signal that the statement after it is the conclusion is three dots forming the vertices of an equilateral triangle: ∴, pronounced "therefore."] The words *thus*, *hence*, *so*, and the phrases *it follows that*, *we see that*, and so on, also flag conclusions. The words *suppose*, *let*, *given*, *assume*, and so on, flag premises.
+
+A concrete argument of the form just given might be:
+
+::: {.callout-note appearance="minimal"}
+If it is sunny, I will wear sandals. It is sunny. Therefore, I will wear sandals.
+:::
+
+Here, *A* is "it is sunny" and *B* is "I will wear sandals."
+
+We usually omit the words "is true." So, for example, the previous argument would be written
+
+::: {.callout-note appearance="minimal"}
+If A then B. A. Therefore, B.
+:::
+
+The statement *not A*^[*Not A* is sometimes written *¬A*.] means *A* is false. The chapters on Logic and Categorical Logic give a more mathematical treatment of logic. This chapter gives only a few valid rules of reasoning (and some fallacies to avoid).
+
+### Validity and Soundness {#valid_sound}
+
+{{< video https://www.youtube.com/embed/mnbbRtFxWHA?start=3235&end=3440 >}}
+
+**An argument is valid if the conclusion must be true whenever the premises are true.** In other words, an argument is valid if the truth of its premises guarantees the truth of its conclusion. Stating the conclusion explicitly is in some sense redundant, because the conclusion follows from the premises: it serves to draw our attention to the fact that that *particular* statement is one (of many) that must be true if the premises are true. **An argument that is not valid is invalid or fallacious.**
+
+If an argument is valid *and* its premises are true, the argument is **sound**. If an argument is not sound it is **unsound**. An argument can be valid even if its premises are false—but such an argument is unsound. For instance, the following argument is valid but unsound:
+
+::: {.callout-note appearance="minimal"}
+Cheese more than a billion years old is stale.
+The Moon is made of cheese.
+The Moon is more than a billion years old.
+Therefore, the Moon is stale cheese.
+:::
+
+If all three premises were true, the conclusion would have to be true. The argument is valid despite the fact that the Moon is not made of cheese, but the argument is unsound—because the Moon is not made of cheese. The chapter on Logic discusses validity and soundness in more detail.
+
+The logical form of the argument just above is (roughly):
+
+::: {.callout-note appearance="minimal"}
+For any x, if x is A and x is B then x is C. y is A. y is B. Therefore, y is
+C.^[There are hard, picky details hidden here. For instance, when can you
+substitute *y* for *x*? Such issues are studied in formal logic; we will not
+delve that deep here. However, see the chapter on Categorical Logic.]
+:::
+
+Here, *A* is "made of cheese," *B* is "more than a billion years old." and *C*
+is "stale." The symbol *x* is a free variable that can stand for anything; the
+symbol *y* stands for the Moon. Note that this example uses *A*, *B*, and *C* to
+represent properties of objects (categories, see the chapter on Categorical
+Logic), rather than to represent statements (whole sentences), as above.
+
+::: {.callout-important title="Some Valid Rules of Reasoning" appearance="minimal" #inference_rules}
+- *A or not A.* (**Law of the excluded middle**)
+- *Not (A and not A).*
+- *A. Therefore, A or B.*
+- *A. B. Therefore, A and B.*
+- *A and B. Therefore, A.*
+- *Not A. Therefore, not (A and B).*
+- *A or B. Not A. Therefore, B.* (**denying the disjunct**)
+- *Not (A and B). Therefore, (not A) or (not B).* (**de Morgan**)
+- *Not (A or B). Therefore, (not A) and (not B).* (**de Morgan**)
+- *If A then B. A. Therefore, B.* (**affirming the precedent**, **modus ponendo ponens**, "affirming by affirming")
+- *If A then B. *Not B. Therefore, not A.* (**denying the consequent**, **modus tollendo tollens**, "denying by denying")
+:::
+
+### Formal Fallacies {#formal_fallacies}
+
+{{< video https://www.youtube.com/embed/xLXucbK48uw?start=205&end=720 >}}
+
+**Formal fallacies are errors that result from misapplying or not following these rules.** For instance, consider the argument:
+
+::: {.callout-note appearance="minimal"}
+If A then B. B. Therefore, A.
+:::
+
+A concrete example of this might be:
+
+::: {.callout-note appearance="minimal"}
+If it is sunny, I will wear sandals. I will wear sandals. Therefore, it is sunny.
+:::
+
+(I encourage you to "plug in" values in abstract expressions to get plain-language examples—not only in this chapter, but anytime you encounter a mathematical expression. That can really clarify the math.) This is a fallacy known as **affirming the consequent**. (In the [conditional](gloss.htm#conditional) *If A then B*, *A* is called the **antecedent** and *B* is called the **consequent**. To *affirm* something is to assert that it is true; to *deny* something is to assert that it is false.) The premises say that if *A* is true, *B* must also be true. It does not follow that if *B* is true, *A* must also be true. To draw the conclusion that *A* is true, we need an additional premise: *If B then A*. That premise, together with the other two premises, would allow us to conclude that *A* is true.
+
+More generally, consider proving something from the premise *If A then B* and an additional premise: that *A* is true, that *A* is false, that *B* is true, or that *B* is false.
+
+If the additional premise is that the antecedent *A* is true, we are [affirming the antecedent](gloss.htm#affirming_the_antecedent), which allows us to reach the logically valid conclusion that *B* is also true. If the additional premise is that the antecedent *A* is false, we are [denying the antecedent](gloss.htm#denying_the_antecedent), which does *not* allow us to conclude anything about *B*.
+
+If the additional premise is that the consequent *B* is true, we are [affirming the consequent](gloss.htm#affirming_the_consequent), which does *not* allow us to conclude anything about *A*. If the additional premise is that the consequent *B* is false, we are [denying the consequent](gloss.htm#denying_the_consequent), which allows us to reach the logically valid conclusion that *A* is also false.
+
+There are countless fallacies; some, such as [affirming the consequent](gloss.htm#affirming_the_consequent) and [denying the antecedent](gloss.htm#denying_the_antecedent) are so common they have names. Some do not.
+
+*Non sequitur* is the name of another common type of formal fallacy. For instance, consider the argument:
+
+::: {.callout-note appearance="minimal"}
+If A then B. A. Therefore, C.
+:::
+
+This is a fallacy known as **non sequitur**, which is Latin for "does not follow." The conclusion does not follow from the two premises. The premises guarantee that *B* is true. They say nothing about *C*. The conclusion *B* follows from the premises but the conclusion *C* does not. There is a missing premise: *If B then C*. We will distinguish between two kinds of **non sequitur**; see the box below.
+
+::: {.callout-important title="Common Formal Fallacies" appearance="minimal" #common_formal_fallacies}
+- If A then B. B. Therefore, A. (**affirming the consequent**)
+- If A then B. Not A. Therefore, not B. (**denying the antecedent**)
+- Not (A and B). Therefore, (not A) and (not B). (Incorrect application of **de Morgan's law**)
+- If A then B. A. Therefore, C. (**non sequitur** of relevance)^[This is called a *non sequitur* of relevance because the conclusion that can be derived from the premises (*B*) has nothing to do with the stated conclusion (*C*). There is a missing premise: If *A* is true, *C* must also be true.]
+- If A then B. Not C. Therefore, not A. (**non sequitur** of evidence)^[This is called a *non sequitur* of evidence because there is a logical connection between the premises and a conclusion, but the conclusion that *C* is false does not follow. This is a *non sequitur* of relevance because the conclusion that can be derived from the premises (*not A*) has nothing to do with the stated conclusion (*not C*). There is a missing premise: If *A* is false, *C* must also be false.]
+:::
+
+The following exercises check your understanding of the correct application of
+rules of reasoning, valid and sound arguments, and formal and informal
+fallacies.
+
+{{< sticigui-surveyjs directory="exercises/ch2_1" random="1" theme="defaultV2" >}}
+
+{{< sticigui-surveyjs directory="exercises/ch2_2" random="1" theme="defaultV2" >}}
+
+## Informal Fallacies {#informal_fallacies}
+
+{{< video https://www.youtube.com/embed/xLXucbK48uw?start=720&end=1500 >}}
+
+Formal fallacies result from errors in applying formal rules of reasoning. There
+is another important class of fallacies that does not result from applying
+formal rules incorrectly, but rather from features of the language, context, or
+content of the argument. These are called **informal fallacies**.
+
+Informal fallacies can be hard to spot, and there is not always agreement about
+whether a given argument commits a particular informal fallacy. Nonetheless,
+there are some types of argument that are so commonly fallacious that they have
+been given names.
+
+To sum up, many (if not all) informal fallacies are of this form: The argument
+is a **non sequitur of relevance** or a **non sequitur of evidence**. **Non
+sequiturs of relevance** can be made valid by adding a premise that says the
+real conclusion implies the desired conclusion. **Non sequiturs of evidence**
+can be made valid by adding a premise that says one of the given premises
+implies a necessary but missing premise. In both cases, the missing premise is
+false, so the patched argument would be valid but not sound.
+
+::: {.callout-important title="Fallacies of Relevance and Fallacies of Evidence" appearance="minimal" #fallacies_of_relevance_and_evidence}
+A **fallacy of relevance** commits a **non sequitur of relevance**: It
+establishes a conclusion, but not the desired conclusion. An extra (and false)
+premise is needed for the actual conclusion to imply the desired conclusion. A
+canonical form of a fallacy of relevance is:
+
+*If A then B. A. Therefore, C.*—together with the real-world fact that *B* does
+not imply *C*.
+
+Alternatively, a fallacy of relevance is:
+
+*If A then B. Not B. Therefore, not C.*—together with the real-world fact that
+**not A* does not imply *not C*.
+
+Conversely, a **fallacy of evidence** commits a **non sequitur of evidence**: It
+does not establish any conclusion. An extra (and false) premise is needed for
+one of the stated premises to imply a premise that can be used to reach the
+desired conclusion. A canonical form for a fallacy of evidence is:
+
+*If A then B. C. Therefore B.*—together with the real-world fact that *C* does
+not imply *A*.
+
+Alternatively, a fallacy of evidence is:
+
+*If A then B. Not C. Therefore, not A.*—together with the real-world fact that
+*not C* does not imply *not B*.
+:::
+
+### Fallacies of Relevance {#relevance}
+
+::: {.callout-important title="Common Fallacies of Relevance" appearance="minimal" #fallacies_of_relevance}
+- Personal attack (*ad hominem*)
+- Attacking the motive  
+- Look who's talking (*tu quoque*)  
+- Two wrongs make a right  
+- Appeal to force (*ad baculum*)  
+- Appeal to pity (*ad misericordium*)  
+- Bandwagon argument (*ad populum*)  
+- Straw man  
+- Red herring  
+- Equivocation (semantic fallacy)
+- Begging the question (*petitio principii*) 
+:::
+
+The following exercises check your ability to recognize informal fallacies.
+
+{{< sticigui-surveyjs directory="exercises/ch2_3" random="1" theme="defaultV2" >}}
+
+Logicians often distinguish among kinds of relevance. **A piece of evidence is
+*positively relevant* to some assertion if it adds weight to the assertion. It
+is *negatively relevant* if it takes weight away from the assertion. Some
+evidence is *irrelevant* to a given assertion.**
+
+For instance, consider the assertion "it's hot outside." The observation that
+passers-by are sweating would be positively relevant to the assertion: it
+supports the assertion that the weather is hot. The observation that passers-by
+are wearing parkas would be negatively relevant: it is evidence that the weather
+is not hot. The observation that passers-by are listening to mp3 players would
+be irrelevant.
+
+Many superficially persuasive arguments in fact ride on irrelevant observations.
+Here are some examples.
+
+#### *Ad hominem* (personal attack)
+
+::: {.callout-note appearance="minimal" #nte-ad-hominem}
+Nancy claims the death penalty is a good thing. But Nancy once set fire to a
+vacant warehouse. Nancy is evil. Therefore, the death penalty is a bad thing.
+:::
+
+This argument does not address Nancy's argument, it just says she must be wrong
+(about everything) because she is evil. Whether Nancy is good or evil is
+irrelevant: It has no bearing on whether her argument is sound.
+
+This is a fallacy of relevance: It establishes that Nancy is bad, then equates
+being bad and never being right. In symbols, the argument is *If A then B. A.
+Therefore C.* (If somebody sets fire to a vacant warehouse, that person is evil.
+Nancy set fire to a vacant warehouse. Therefore, Nancy's opinion about the death
+penalty is wrong.)
+
+*Ad hominem* is Latin for "towards the person." An *ad hominem* argument attacks
+the person making the claim, rather than the person's reasoning. A variant of
+the *ad hominem* argument is "guilt by association."
+
+#### Bad motive
+
+::: {.callout-note appearance="minimal" #nte-bad-motive}
+Bob claims the death penalty is a good thing. But Bob's family business
+manufactures caskets. Bob benefits when people die, so his motives are suspect.
+Therefore, the death penalty is a bad thing.
+:::
+
+This argument does not address Bob's argument, it addresses Bob's motives. His
+motives are irrelevant: They have nothing to do with whether his argument for
+the death penalty is sound.
+
+This is related to an *ad hominem* argument. It, too, addresses the person, not
+the person's argument. However, rather than condemning Bob as evil, it impugns
+his motives in arguing for this particular conclusion.
+
+#### *Tu quoque* (look who's talking)
+
+::: {.callout-note appearance="minimal" #nte-tu-quoque}
+Amy says people shouldn't smoke cigarettes in public because cigarette smoke has
+a strong odor. But Amy wears strong perfume all the time. Amy is clearly a
+hypocrite. Therefore, smoking in public is fine.
+:::
+
+This argument does not engage Amy's argument: It attacks her for the
+(in)consistency of her opinions in this matter and in some other matter. Whether
+Amy wears strong fragrances has nothing to do with whether her argument against
+smoking is sound.
+
+The abstract form of this argument is also a *non sequitur*: *If A then B. A.
+Therefore C.* (In words: If you complain about strong smells and wear strong
+fragrances, you are a hypocrite. Amy complains about strong smells and wears
+strong perfume; therefore, her opinion about smoking is incorrect.)
+
+*Tu quoque* is Latin for "you also." It related to *ad hominem* arguments: it addresses
+the person rather than the person's argument. But instead of *generally* condemning
+the other party, it says that his or her claim in the matter at issue is
+hypocritical because it is inconsistent with something else the person has done
+or said. We are supposed to conclude that he or she must therefore be wrong on
+this particular point.
+
+#### Two wrongs make a right
+
+::: {.callout-note appearance="minimal" #nte-two-wrongs}
+Yes, I hit Billy. But Sally hit him first.
+:::
+
+This argument claims it is fine to do something wrong because somebody else did
+something wrong. The argument is of the form: *If A then B. A. Therefore C.* (In
+words: If Sally hit Billy, it's OK for Billy to hit Sally. Sally hit Billy.
+Therefore, it's OK for me to hit Billy.)
+
+Generally, the two-wrongs-make-a-right argument says that the justified wrong 
+happened after the exculpatory wrong, or was less severe. For instance, Sally 
+hit Billy first, or Sally hit Billy harder than I did, or Sally pulled a knife 
+on Billy.
+
+On the other hand, it might be quite reasonable to argue, "yes, I hit Billy. But 
+he was beating me with a baseball bat—I acted in self defense." In that case, 
+the first "wrong" might justify hitting Billy, which otherwise would be wrong.
+
+#### *Ad baculum* (appeal to force)
+
+::: {.callout-note appearance="minimal" #nte-ad-baculum}
+If you don't give me your lunch money, my big brother will beat you up. You don't 
+want to be beaten up, do you? Therefore, you should give me your lunch money.
+:::
+
+This argument appeals to force: Accept my conclusion—or else. It is not a logical 
+argument. It is an argument that if you do not accept the conclusion (and give me 
+your lunch money), something bad will happen (you will get beaten)—not an argument 
+that the conclusion is correct. The form of the argument is *If A then B. B is bad. 
+Therefore, not A.* Here, A is "you don't give me your lunch money," B is "you will 
+be beaten up." The argument conflates "it is bad to be beaten up" with "it is false 
+that you will be beaten up." The argument establishes the conclusion that if you 
+don't give me your lunch money, something bad will happen. It does not establish 
+the conclusion that you should give me your lunch money.
+
+There is a missing premise that relates the implicit conclusion that could be
+justified on the evidence (if you don't give me your lunch money, something bad 
+will happen) to the stated conclusion (you should give me your lunch money).
+
+*Ad baculum* is a fallacy of relevance, because it relies on a non sequitur of
+relevance. *Ad baculum* is Latin for "to the stick." It is essentially the 
+argument "might makes right."
+
+Not all arguments of the form *If you do A then B will happen. B is bad.
+Therefore, don't do A* are *ad baculum* arguments. It depends in part on whether
+B is a real or imposed consequence of A. For instance, *If you cheat on your
+exam, you will feel guilty about it for the rest of your life; therefore, you
+should not cheat* is not an *ad baculum* argument. But *If you cheat on your
+exam, I will turn you in to the Student Conduct Office and have you expelled;
+therefore, you should not cheat* is an *ad baculum* argument. (Either way, don't
+cheat on your exam!)
+
+#### *Ad misericordium* (appeal to pity)
+
+::: {.callout-note appearance="minimal" #nte-ad-misericordiam}
+Yes, I downloaded music illegally—but my girlfriend left me and I lost my job so 
+I was broke and I couldn't afford to buy music and I was so sad that I was broke 
+and that my girlfriend was gone that I really had to listen to 100 variations of 
+She caught the Katy.
+:::
+
+This argument justifies an action not by claiming that it is correct, but by an 
+appeal to pity: extenuating circumstances of a sort.
+
+*Ad misericordium* is Latin for "to pity." It is an appeal to compassion rather 
+than to reason. Another example:
+
+Yes, I failed the final. But I need to get an A in the class or I [won't get into 
+Business school] / [will lose my scholarship] / [will violate my academic probation] / 
+[will lose my 4.0 GPA]. You have to give me an A!
+
+#### *Ad populum* (bandwagon)
+
+::: {.callout-note appearance="minimal" #nte-bandwagon}
+Millions of people share copyrighted mp3 files and videos online. Therefore, 
+sharing copyrighted music and videos is fine.
+:::
+
+This "bandwagon" argument claims that something is moral because it is common. 
+Common and correct are not the same. Whether a practice is widespread has little 
+bearing on whether it is legal or moral. That many people believe something is 
+true does not make it true.
+
+*Ad populum* is Latin for "to the people." It equates the popularity of an idea 
+with the truth of the idea: Everybody can't be wrong. Few teenagers have not made 
+*ad populum* arguments: "But Mom, everybody is doing it!"
+
+#### Loaded question
+
+::: {.callout-note appearance="minimal" #nte-loaded-question}
+Have you stopped cheating on your taxes?
+:::
+
+This question contains a hidden assumption—that the person has been cheating on
+their taxes. Whether they answer "yes" or "no," they seem to admit to past tax
+cheating. The question should be broken into two parts: "Have you ever cheated
+on your taxes?" and if so, "Have you stopped?"
+
+#### Weak analogy
+
+::: {.callout-note appearance="minimal" #nte-weak-analogy}
+Employees are like nails. Just as nails must be hit on the head to get them to
+work, employees must be threatened to get them to work.
+:::
+
+This argument draws a comparison between two things that are not sufficiently
+similar. While employees and nails might share some superficial similarities,
+the analogy breaks down when we consider motivation, creativity, and human psychology.
+
+#### Straw man
+
+::: {.callout-note appearance="minimal" #nte-straw-man}
+Bob: Sleeping a full 12 hours once in a while is a healthy pleasure.
+
+Samantha: If everybody slept 12 hours all the time, nothing would ever get done; 
+the reduction in productivity would drive the country into bankruptcy. Therefore, 
+nobody should sleep for 12 hours.
+:::
+
+Samantha attacked a different claim from the one Bob made: She attacked the 
+assertion that it is good *for everybody to sleep 12 hours every day*. Bob only 
+claimed that it was good *once in a while*.
+
+This argument is also a *non sequitur* of relevance: *If A then B. A. Therefore C.* 
+(In words: If an action would have bad consequences if everyone did it all the time, 
+then that action should not be performed by everyone all the time. Sleeping 12 hours 
+would have bad consequences if everyone did it all the time. Therefore, nobody should 
+ever do it.)
+
+A straw man argument replaces the original claim with one that is more vulnerable, 
+attacks that more vulnerable claim, then pretends to have refuted the original.
+
+#### Red herring
+
+::: {.callout-note appearance="minimal" #nte-red-herring}
+Art: Teacher salaries should be increased to attract better teachers.
+
+Bette: Lengthening the school day would also improve student learning outcomes. 
+Therefore, teacher salaries should remain the same.
+:::
+
+Art argues that increasing teacher salaries would attract better teachers. Bette 
+does not address his argument: She simply argues that there are other ways of 
+improving student learning outcomes. Art did not even use student learning 
+outcomes as a reason for increasing teacher salaries. Even if Bette is correct 
+that lengthening the school day would improve learning outcomes, her argument is 
+sideways to Art's: It is a distraction, not a refutation.
+
+A red herring argument distracts the listener from the real topic. Red herring 
+arguments are very common in political discourse.
+
+#### Equivocation
+
+::: {.callout-note appearance="minimal" #nte-equivocation}
+All men should have the right to vote.
+Sally is not a man.
+Therefore, Sally should not necessarily have the right to vote.
+:::
+
+This is an example of equivocation, a fallacy facilitated by the fact that a 
+word can have more than one meaning. This argument uses the word *man* in two 
+different ways. In the first premise, the word means *human* while in the 
+second, it means *male*. Generally, equivocation is considered a fallacy of 
+relevance, but this example fits our definition of a fallacy of evidence.
+
+The logical form of this argument is *If A then B. Not C. Therefore, B is not 
+necessarily true.* That argument is a formal fallacy. There is a missing premise 
+that equates one of the premises given (Sally is not male) with a different 
+premise not given (Sally is not human). That is, *if not C then not A*. That 
+(false) premise relates evidence given to evidence not given, so this is a 
+fallacy of evidence according to our definition. The fact that the same word can 
+mean "human" and "male" hides the formal fallacy.
+
+Another common structure for fallacies that involve equivocation is: *All P₁s are Qs. 
+X is a P₂. Therefore, X is a Q.* The equivocation is that the same word is used to 
+refer to P₁ and P₂, which hides the fact that P₁ and P₂ are not the same.
+
+Here is an example of equivocation hiding a fallacy of relevance:
+
+If you are a Swiss citizen living in the U.S., you are an alien (foreigner). 
+Birgitte is a Swiss citizen living in California. Therefore, Birgitte is an 
+Alien (from another planet).
+
+The structure of this example is *For any x, if x is A then x is B. y is A. 
+Therefore, y is C.* The missing (and false) premise is that all aliens are 
+Aliens (*For any x, if x is B then x is C*), which would relate the valid 
+conclusion (Birgitte is an alien) to the desired conclusion (Birgitte is an 
+Alien). Thus this equivocation fallacy is a fallacy of relevance.
+
+The straw man, red herring and equivocation fallacies all change the subject: 
+they argue for (or against) something that is sideways to the original claim 
+but easy to confuse with the original claim. *Ad hominem* arguments also change 
+the subject—from whether the speaker is right to whether the speaker is "good."
+
+#### *Petitio principii* (begging the question)
+
+::: {.callout-note appearance="minimal" #nte-begging-question}
+There is no circumstance that justifies killing another person.
+The death penalty involves killing another person.
+Therefore, even if someone commits a brutal murder, he should not be put to death.
+:::
+
+This argument begs the question. It assumes what it purports to prove, namely, 
+that there is no circumstance that justifies killing. "No circumstance" already 
+precludes "commits brutal murder."
+
+The form of the argument is *A. Therefore, A.* That is indeed logically valid—it 
+just isn't much of an argument. Where this "fallacy" gets legs is when the 
+premise and the conclusion use different words to say the same thing, creating 
+the illusion that the conclusion is different from the assumption. Here is another 
+example:
+
+Jack is overweight. Therefore, Jack is fat.
+
+*Petitio principii* is Latin for "attack the beginning." The premise assumes 
+the truth of the conclusion. A circular argument is a variant of begging the question.
+
+### Fallacies of Evidence {#evidence}
+
+::: {.callout-important title="Common Fallacies of Evidence" appearance="minimal" #fallacies_of_evidence}
+- Inappropriate appeal to authority 
+- Appeal to ignorance  
+- False dichotomy  
+- Loaded question  
+- Questionable cause  
+- Slippery slope  
+- Hasty generalization  
+- Weak analogy  
+- Inconsistency  
+:::
+
+#### Inappropriate appeal to authority
+
+::: {.callout-note appearance="minimal" #nte-appeal-authority}
+All animals with rabies go crazy.
+Jessie says my cat has rabies.
+Therefore, my cat will go crazy.
+:::
+
+This argument is fallacious. The form of the argument is *If A then B. C. 
+Therefore, B.* There is a missing premise, namely, that if Jessie says my cat 
+has rabies, then my cat has rabies. That premise relates a stated premise (Jessie 
+says my cat has rabies—the evidence given) to an unstated premise (my cat has 
+rabies—the evidence required to be able to use the premise that animals with 
+rabies go crazy).
+
+The argument is clearly stronger if Jessie is a veterinarian who tested my cat 
+for rabies than if Jessie is a 5-year-old child who lives next door. Any time 
+we take somebody's say-so as evidence, we are making an appeal to authority. 
+That person might or might not be "an authority."
+
+#### Appeal to Ignorance
+
+::: {.callout-note appearance="minimal" #nte-appeal-ignorance}
+To study user satisfaction with our software product, we sent out 5,000 
+questionnaires to registered users. Only 100 users filled out and mailed back 
+their questionnaires. Since more than 4,900 of the 5,000 users surveyed did not 
+complain, the vast majority of users are satisfied with the software.
+:::
+
+This argument is fallacious: It treats "no evidence of dissatisfaction" as if 
+it were "evidence of satisfaction." Lack of evidence that a statement is false 
+is not evidence that the statement is true. Nor is lack of evidence that a 
+statement is true evidence that the statement is false.
+
+#### False dichotomy
+
+::: {.callout-note appearance="minimal" #nte-false-dichotomy}
+Either you support the war in Iraq, or you don't support our soldiers who risk 
+their lives for our country. You do support our soldiers. Therefore, you support 
+the war.
+:::
+
+This argument is valid but not sound: It starts with a premise that is an 
+artificial "either-or"—a false dichotomy. It is possible to support our soldiers 
+and still to oppose the war in Iraq, so the first premise is false.
+
+False dichotomies show up in question form as well: "So, if you didn't get that 
+money by embezzling it, did you rob someone at gunpoint?" The question creates 
+an artificial choice between only two alternatives when other possibilities exist.
+
+#### Questionable cause
+
+::: {.callout-note appearance="minimal" #nte-questionable-cause}
+After nearly eight years of the Bush administration, the stock market had the 
+largest drop since the Great Depression. The Republican government ruined the economy.
+:::
+
+It might be true that Bush administration policies led to the stock market crash. 
+And it might be true that there would have been a comparable "market correction" 
+under a Democratic administration. The fact that the crash occurred late in the 
+Bush administration is not in itself proof that it was caused by Republican 
+government. The crash also occurred shortly after the introduction of the iPhone. 
+Does it follow that the iPhone caused the stock market crash?
+
+This argument is an example of questionable cause. In particular, it is an 
+example of the *post hoc ergo propter hoc* (after this, therefore because of 
+this) fallacy. Just because one event follows another doesn't mean the first 
+caused the second.
+
+#### Slippery slope
+
+::: {.callout-note appearance="minimal" #nte-slippery-slope}
+Marijuana must remain illegal. If it were legalized, cocaine would soon follow. 
+And if cocaine were legalized, then opium would be, and eventually heroin, too. 
+Before you know it, everybody would be on drugs, from nursing infants to 
+great-great-grandparents. The economy would collapse. Within five years, the 
+U.S. would be a third-world country.
+:::
+
+This argument is of the form: *If A then B. If B then C. If C then D, etc. 
+Eventually, Z. You don't want Z, do you? So, you must prevent A.*
+
+While each step in this progression is possible, it is by no means inevitable: 
+The conditional statements are really "if A then *possibly* B", etc., but they 
+are asserted as "if A then *necessarily* B," and so on. The implicit argument 
+is that since there is no "bright line" demarcating where to stop the progression, 
+the progression will not stop. That is fallacious. There is no law of Nature 
+that says government could not draw the line at any point in the progression.
+
+#### Hasty generalization
+
+::: {.callout-note appearance="minimal" #nte-hasty-generalization}
+I interviewed 20 students in the lunch line at noon today. Nineteen were hungry. 
+Therefore, most students are hungry.
+:::
+
+This argument is of the form: *Some x are (sometimes) A. Therefore, most x are 
+(always) A.* The data do not support such a generalization: They were taken at 
+a particular time and place of my choosing. To draw reliable generalizations 
+from the sample to other times, places, and students requires a sample that is 
+drawn using proper sampling techniques.
+
+This sample has built-in bias by virtue of where and when it was taken. It is 
+called a convenience sample because it simply selected students who were readily 
+available. At another time, the same students might not be hungry. At noon, 
+students not in the lunch line might not be hungry.
+
+#### Inconsistency
+
+::: {.callout-note appearance="minimal" #nte-inconsistency}
+"Nobody goes there anymore. That place is too crowded." —Yogi Berra
+:::
+
+This isn't an argument because there is no conclusion, only premises, but that's 
+not the point. These two premises amount to: *A. Not A.* They contradict each 
+other. If one of the premises is true, the other must be false: It is logically 
+impossible for both to be true. Hence, any argument that stems from them cannot 
+be sound—since, even if it is valid, it will have a false premise.
+
+Generally, the fallacy of inconsistency occurs whenever the premises cannot all 
+be true—as a matter of logic. Yogi Berra was a master of inconsistency. Some 
+other examples attributed to him include:
+
+"Baseball is 90% physical. The other half is mental."
+"Half the lies they tell about me aren't true."
+"If the world was perfect, it wouldn't be."

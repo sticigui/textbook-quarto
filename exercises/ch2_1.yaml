@@ -1,0 +1,106 @@
+ch2_1:
+  question: |
+    Identify whether the following sequence of statements is valid reasoning or a formal fallacy.
+  exercises:
+    - random: true
+      inputs:
+      - prompt: "A. Therefore, not (not A)."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: "This is the definition of 'not.'"
+      - prompt: "A. B. Therefore, A and B."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: "This is the definition of 'and.'"
+      - prompt: "B. Therefore, A or B."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: "A or B is true if A is true, if B is true and if both A and B are true."
+      - prompt: "A or B. Not B. Therefore, A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: "If either A or B is true, and B is not true, A must be true."
+      - prompt: "If A then B. A. Therefore, B."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: 'This is <a class="glossRef" href="gloss.htm#affirming_the_antecedent">affirming the antecedent</a>.'
+      - prompt: "If A then B. Not B. Therefore, not A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: 'This is <a class="glossRef" href="gloss.htm#denying_the_consequent">denying the consequent</a>.'
+      - prompt: "not (A or B).  Therefore, (not A) and (not B)"
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: 'This is an application of one of <a class="glossRef" href="gloss.htm#de_morgan">de Morgan''s laws</a>.'
+      - prompt: "not (A or B).  Therefore, (not A) or (not B)"
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: 'By one of <a class="glossRef" href="gloss.htm#de_morgan">de Morgan''s laws</a>, if not (A or B), then A is false and B is false. But if both A and B are false, then either A is false or B is false.'
+      - prompt: "not (A and B).  Therefore, (not A) or (not B)"
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: 'This is an application of one of <a class="glossRef" href="gloss.htm#de_morgan">de Morgan''s laws</a>.'
+      - prompt: "A or not B.  B. Therefore, A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Valid
+        explanation: "This is the definition of 'or' applied to A and not B. If either A is true or B is false, and B is true, then A must be false."
+      - prompt: "A or B.  A.  Therefore, not B."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: "A or B is true with either A, B or both are true. So, both A and B could be true, and it does not follow that B is false."
+      - prompt: "A or B.  B.  Therefore, not A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: "A or B is true with either A, B or both are true. So, both A and B could be true, and it does not follow that A is false."
+      - prompt: "not (A and B). Therefore, not B."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: "A and B is false when either A, B, or both are false. So, B might be true and A might be false. It does not follow that B is false."
+      - prompt: "not (A and B). Therefore, not A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: "A and B is false when either A, B, or both are false. So, A might be true and B might be false. It does not follow that A is false."
+      - prompt: "If A then B. Not A. Therefore, not B."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: 'This is an example of <a class="glossRef" href="gloss.htm#denying_the_antecedent">denying the antecedent</a>.'
+      - prompt: "If A then B. Not B. Therefore, A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: 'By <a class="glossRef" href="gloss.htm#denying_the_consequent">denying the consequent</a>, we can conclude that A is false, not that A is true.'
+      - prompt: "If A then B. B. Therefore, A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: 'This is an example of <a class="glossRef" href="gloss.htm#affirming_the_consequent">affirming the consequent</a>.'
+      - prompt: "not (A and B). Therefore, (not A) and (not B)"
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: "It follows that either A is false or B is false, but not necessarily that both are false."
+      - prompt: "If A then B. C. Therefore, A."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: 'This is a <a class="glossRef" href="non_sequitur_of_evidence">non sequitur of evidence</a>.'
+      - prompt: "If A then B. A. Therefore, C."
+        type: button
+        choices: [Valid, Fallacious]
+        answer: Fallacious
+        explanation: 'This is a <a class="glossRef" href="non_sequitur_of_relevance">non sequitur of relevance</a>.'

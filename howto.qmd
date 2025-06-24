@@ -1,0 +1,79 @@
+---
+title: "Introduction"
+number-sections: false
+---
+
+## How to use these materials
+
+You are probably using either [Firefox](http://www.mozilla.org), [Google
+Chrome](http://www.google.com/chrome), [Internet
+Explorer](http://www.microsoft.com/ie/),
+[Safari](http://www.apple.com/macosx/features/safari/), or
+[Opera](http://www.opera.com) to view these materials. Those are the most
+popular web browsers. To use all the features of SticiGui©, you need an
+up-to-date browser that supports frames, cascading style sheets (CSS), HTML
+4.01, and JavaScript 1.8. JavaScript must be enabled in the browser; for
+assignments to work, the browser must also accept cookies from the originating
+server. For a variety of reasons, I strongly recommend that you use Firefox and
+that you not use Internet Explorer. Recent versions of Chrome, Safari and Opera
+also work—mostly. The materials have been tested most thoroughly with Firefox.
+
+A *link* is a piece of text you can "click" to see another document. You place
+the cursor over the link, then push the mouse button (left mouse button on a PC
+compatible computer) to "follow" the link. Links in these materials are
+generally in blue type.
+
+Clicking a link can either replace the document in one of the frames you are
+viewing (not always the frame that has the link), or open a new window that
+displays the new document. If you have not changed the default settings in your
+browser, links to the glossary will be in green type; those take you to the
+right place in the glossary in the bottom frame, so that you don't lose your
+place in the book when you look up a term. Links to other materials are in blue
+type; those typically replace the contents of the frame you are reading.
+
+You should familiarize yourself with how your browser works to learn to navigate
+among windows. On the right side of the browser window, you should see a scroll
+bar. If there is a scrollbar, that means there is more to see—drag the slider
+down to see more of the text. On some computers, there is a "page down" button
+you can click to see the next screenful of text.
+
+In the assignments, the navigation buttons are suppressed to leave more room on
+the screen for text and graphics. You can still get a "pop-up menu" that will
+allow you to go back to the previous document. How you get the menu depends on
+the browser and the operating system. In Microsoft Windows, you get the pop-up
+menu by right-clicking in the open browser window. Most browsers have the
+ability to search within a document to find a word or phrase within a page. You
+might find that feature useful to search for a word in the [glossary](gloss.htm)
+or a chapter of the text.
+
+There are graphical [data analysis and visualization
+tools](../../Java/Html/index.htm) throughout the text and assignments. Every
+chapter has exercises to check your understanding. I strongly recommend that you
+do all of them. Most of the exercises call for an answer in a box. After you
+type in your answer, strike the "return" or "enter" key. The symbol next to the
+question will change from a question mark ![](Graphics/answer_unknown.gif)
+either to a green check ![](Graphics/answer_good.gif) (if your answer is right)
+or to a red X ![](Graphics/answer_bad.gif) (if your answer is wrong).
+
+Multiple-choice questions automatically show the green check or red X when you
+select an answer. Multiple-multiple-choice questions ("select all that apply")
+are followed by a button you can click to check your answer. Clicking the mark
+after the question (the question mark, check, or X) will expand a box containing
+the correct answer, if you have already attempted the problem. You can answer
+each question as many times as you like, or see the correct answer. More
+detailed solutions to some of the exercises are available too; there is a link
+to the detailed answers after those questions. Your answers to the exercises in
+the text are not recorded, and the exercises do not contribute to your grade.
+Many of the problems are generated randomly—reloading or revisiting the page
+will give you a new set of problems, so you can get unlimited practice.
+
+Most of the chapters have a corresponding [assignment](../Problems/index.htm)
+covering the material in the chapter. The assignments are graded by a computer,
+and may contribute to your grade (your instructor will tell you). Be sure to
+click the button labeled "Submit for Grading" after you answer the questions in
+each assignment. After the due date of the problem set, you can [see your
+score](../Problems/index.htm) by filling out a form. You can also see the
+solutions after the due date by returning to the assignment. For [detailed
+instructions about the assignments](../Problems/index.htm#general_instructions),
+including browser-related issues, see the [homework
+homepage](../Problems/index.htm).

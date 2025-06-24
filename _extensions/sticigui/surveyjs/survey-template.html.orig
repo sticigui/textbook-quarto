@@ -1,0 +1,458 @@
+<div class="callout callout-tip">
+  <div class="callout-body">
+    <div id="{{SURVEY_ID}}" class="sticigui-surveyjs-container"></div>
+    <script>
+      (function() {
+        const surveyJson = {{SURVEY_JSON}};
+        console.log("Loading SurveyJS for survey:", "{{SURVEY_ID}}");
+        console.log("Survey JSON data:", surveyJson);
+        
+        // Function to initialize survey
+        function initSurvey() {
+          try {
+            if (typeof Survey === 'undefined') {
+              throw new Error('Survey library not loaded');
+            }
+            const survey = new Survey.Model(surveyJson);
+            
+            // Configure survey to inherit external theme styles
+            // Disable SurveyJS default styling to allow Quarto theme inheritance
+            console.log("[SurveyJS] Before applyTheme, StylesManager:", typeof Survey.StylesManager);
+            if (typeof Survey.StylesManager !== 'undefined') {
+              console.log("[SurveyJS] Registering and applying defaultV2 theme");
+              if (Survey.StylesManager.Theme && Survey.StylesManager.Theme.defaultV2) {
+                Survey.StylesManager.registerTheme(Survey.StylesManager.Theme.defaultV2);
+              }
+              Survey.StylesManager.applyTheme("defaultV2");
+              console.log("[SurveyJS] Applied defaultV2 theme");
+            } else {
+              console.warn("[SurveyJS] StylesManager is undefined");
+            }
+            // survey.css = {};  // Empty CSS object to disable default theming
+            
+            // Store original JSON for reference
+            const originalQuestions = {};
+            if (surveyJson.questions) {
+              surveyJson.questions.forEach(q => {
+                originalQuestions[q.name] = q;
+              });
+            }
+            
+            // Add custom check answer functionality
+            survey.onAfterRenderQuestion.add(function(survey, options) {
+              const question = options.question;
+              const originalQuestion = originalQuestions[question.name];
+              console.log("Rendering question:", question.name, "Type:", question.getType(), "Has correctAnswers:", !!(originalQuestion && originalQuestion.correctAnswers));
+              // Support radiogroup (single-choice) questions
+              if (question.correctAnswer && question.getType() === 'radiogroup') {
+                // Create check answer button
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'sticigui-check-answer-container';
+                
+                const checkButton = document.createElement('button');
+                checkButton.textContent = 'Check Answer';
+                checkButton.className = 'btn btn-primary btn-sm sticigui-check-answer-btn';
+                checkButton.setAttribute('data-bs-toggle', 'popover');
+                checkButton.setAttribute('data-bs-placement', 'top');
+                checkButton.setAttribute('data-bs-html', 'true');
+                
+                checkButton.onclick = function() {
+                  const selectedValue = question.value;
+                  if (!selectedValue) {
+                    // Show warning popover
+                    checkButton.setAttribute('data-bs-content', 'Please select an answer first.');
+                    checkButton.setAttribute('data-bs-title', 'Warning');
+                    checkButton.className = 'btn btn-warning btn-sm sticigui-check-answer-btn';
+                  } else {
+                    const isCorrect = selectedValue === question.correctAnswer;
+                    const resultText = isCorrect ? 'Correct!' : 'Incorrect.';
+                    const buttonClass = isCorrect ? 'btn btn-success btn-sm sticigui-check-answer-btn' : 'btn btn-danger btn-sm sticigui-check-answer-btn';
+                    
+                    checkButton.className = buttonClass;
+                    
+                    let popoverContent = resultText;
+                    if (question.description) {
+                      popoverContent += '<br><br>' + question.description;
+                    }
+                    checkButton.setAttribute('data-bs-content', popoverContent);
+                  }
+                  
+                  // Initialize and toggle popover
+                  if (typeof bootstrap !== 'undefined') {
+                    const existingPopover = bootstrap.Popover.getInstance(checkButton);
+                    if (existingPopover) {
+                      existingPopover.dispose();
+                    }
+                    
+                    // Create new popover with trigger on focus/click
+                    const popover = new bootstrap.Popover(checkButton, {
+                      trigger: 'focus'
+                    });
+                    popover.show();
+                    checkButton.focus();
+                  }
+                };
+                
+                buttonContainer.appendChild(checkButton);
+                options.htmlElement.appendChild(buttonContainer);
+              }
+              // Support checkbox (multi-select) questions
+              if (question.correctAnswer && question.getType() === 'checkbox') {
+        const surveyJson = {{SURVEY_JSON}};
+        console.log("Loading SurveyJS for survey:", "{{SURVEY_ID}}");
+        console.log("Survey JSON data:", surveyJson);
+        
+        // Function to initialize survey
+        function initSurvey() {
+          try {
+            if (typeof Survey === 'undefined') {
+              throw new Error('Survey library not loaded');
+            }
+            const survey = new Survey.Model(surveyJson);
+            
+            // Configure survey to inherit external theme styles
+            // Disable SurveyJS default styling to allow Quarto theme inheritance
+            console.log("[SurveyJS] Before applyTheme, StylesManager:", typeof Survey.StylesManager);
+            if (typeof Survey.StylesManager !== 'undefined') {
+              console.log("[SurveyJS] Registering and applying defaultV2 theme");
+              if (Survey.StylesManager.Theme && Survey.StylesManager.Theme.defaultV2) {
+                Survey.StylesManager.registerTheme(Survey.StylesManager.Theme.defaultV2);
+              }
+              Survey.StylesManager.applyTheme("defaultV2");
+              console.log("[SurveyJS] Applied defaultV2 theme");
+            } else {
+              console.warn("[SurveyJS] StylesManager is undefined");
+            }
+            // survey.css = {};  // Empty CSS object to disable default theming
+            
+            // Store original JSON for reference
+            const originalQuestions = {};
+            if (surveyJson.questions) {
+              surveyJson.questions.forEach(q => {
+                originalQuestions[q.name] = q;
+              });
+            }
+            
+            // Add custom check answer functionality
+            survey.onAfterRenderQuestion.add(function(survey, options) {
+              const question = options.question;
+              const originalQuestion = originalQuestions[question.name];
+              console.log("Rendering question:", question.name, "Type:", question.getType(), "Has correctAnswers:", !!(originalQuestion && originalQuestion.correctAnswers));
+              // Support radiogroup (single-choice) questions
+              if (question.correctAnswer && question.getType() === 'radiogroup') {
+                // Create check answer button
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'sticigui-check-answer-container';
+                
+                const checkButton = document.createElement('button');
+                checkButton.textContent = 'Check Answer';
+                checkButton.className = 'btn btn-primary btn-sm sticigui-check-answer-btn';
+                checkButton.setAttribute('data-bs-toggle', 'popover');
+                checkButton.setAttribute('data-bs-placement', 'top');
+                checkButton.setAttribute('data-bs-html', 'true');
+                
+                checkButton.onclick = function() {
+                  const selectedValue = question.value;
+                  if (!selectedValue) {
+                    // Show warning popover
+                    checkButton.setAttribute('data-bs-content', 'Please select an answer first.');
+                    checkButton.setAttribute('data-bs-title', 'Warning');
+                    checkButton.className = 'btn btn-warning btn-sm sticigui-check-answer-btn';
+                  } else {
+                    const isCorrect = selectedValue === question.correctAnswer;
+                    const resultText = isCorrect ? 'Correct!' : 'Incorrect.';
+                    const buttonClass = isCorrect ? 'btn btn-success btn-sm sticigui-check-answer-btn' : 'btn btn-danger btn-sm sticigui-check-answer-btn';
+                    
+                    checkButton.className = buttonClass;
+                    
+                    let popoverContent = resultText;
+                    if (question.description) {
+                      popoverContent += '<br><br>' + question.description;
+                    }
+                    checkButton.setAttribute('data-bs-content', popoverContent);
+                  }
+                  
+                  // Initialize and toggle popover
+                  if (typeof bootstrap !== 'undefined') {
+                    // Dispose of existing popover if any
+                    const existingPopover = bootstrap.Popover.getInstance(checkButton);
+                    if (existingPopover) {
+                      existingPopover.dispose();
+                    }
+                    
+                    // Create new popover with trigger on focus/click
+                    const popover = new bootstrap.Popover(checkButton, {
+                      trigger: 'focus'
+                    });
+                    popover.show();
+                    checkButton.focus();
+                  }
+                };
+                
+                buttonContainer.appendChild(checkButton);
+                options.htmlElement.appendChild(buttonContainer);
+              }
+              // Support checkbox (multi-select) questions
+              if (question.correctAnswer && question.getType() === 'checkbox') {
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'sticigui-check-answer-container';
+
+                const checkButton = document.createElement('button');
+                checkButton.textContent = 'Check Answer';
+                checkButton.className = 'btn btn-primary btn-sm sticigui-check-answer-btn';
+                checkButton.setAttribute('data-bs-toggle', 'popover');
+                checkButton.setAttribute('data-bs-placement', 'top');
+                checkButton.setAttribute('data-bs-html', 'true');
+
+                checkButton.onclick = function() {
+                  const selectedValues = question.value || [];
+                  if (!Array.isArray(selectedValues) || selectedValues.length === 0) {
+                    checkButton.setAttribute('data-bs-content', 'Please select at least one answer first.');
+                    checkButton.setAttribute('data-bs-title', 'Warning');
+                    checkButton.className = 'btn btn-warning btn-sm sticigui-check-answer-btn';
+                  } else {
+                    // Compare arrays (order-insensitive)
+                    const correct = Array.isArray(question.correctAnswer) ? question.correctAnswer : [];
+                    const selectedSorted = [...selectedValues].sort();
+                    const correctSorted = [...correct].sort();
+                    const isCorrect = selectedSorted.length === correctSorted.length && selectedSorted.every((v, i) => v === correctSorted[i]);
+                    const resultText = isCorrect ? 'Correct!' : 'Incorrect.';
+                    const buttonClass = isCorrect ? 'btn btn-success btn-sm sticigui-check-answer-btn' : 'btn btn-danger btn-sm sticigui-check-answer-btn';
+                    checkButton.className = buttonClass;
+                    let popoverContent = resultText;
+                    if (question.description) {
+                      popoverContent += '<br><br>' + question.description;
+                    }
+                    checkButton.setAttribute('data-bs-content', popoverContent);
+                  }
+                  // Initialize and toggle popover
+                  if (typeof bootstrap !== 'undefined') {
+                    const existingPopover = bootstrap.Popover.getInstance(checkButton);
+                    if (existingPopover) {
+                      existingPopover.dispose();
+                    }
+                    const popover = new bootstrap.Popover(checkButton, {
+                      trigger: 'focus'
+                    });
+                    popover.show();
+                    checkButton.focus();
+                  }
+                };
+                buttonContainer.appendChild(checkButton);
+                options.htmlElement.appendChild(buttonContainer);
+              }
+              // Support dropdown (single-select) questions
+              if (question.correctAnswer && question.getType() === 'dropdown') {
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'sticigui-check-answer-container';
+
+                const checkButton = document.createElement('button');
+                checkButton.textContent = 'Check Answer';
+                checkButton.className = 'btn btn-primary btn-sm sticigui-check-answer-btn';
+                checkButton.setAttribute('data-bs-toggle', 'popover');
+                checkButton.setAttribute('data-bs-placement', 'top');
+                checkButton.setAttribute('data-bs-html', 'true');
+
+                checkButton.onclick = function() {
+                  const selectedValue = question.value;
+                  if (!selectedValue) {
+                    checkButton.setAttribute('data-bs-content', 'Please select an answer first.');
+                    checkButton.setAttribute('data-bs-title', 'Warning');
+                    checkButton.className = 'btn btn-warning btn-sm sticigui-check-answer-btn';
+                  } else {
+                    let isCorrect = false;
+                    if (Array.isArray(question.correctAnswer)) {
+                      isCorrect = question.correctAnswer.includes(selectedValue);
+                    } else {
+                      isCorrect = selectedValue === question.correctAnswer;
+                    }
+                    const resultText = isCorrect ? 'Correct!' : 'Incorrect.';
+                    const buttonClass = isCorrect ? 'btn btn-success btn-sm sticigui-check-answer-btn' : 'btn btn-danger btn-sm sticigui-check-answer-btn';
+                    checkButton.className = buttonClass;
+                    let popoverContent = resultText;
+                    if (question.description) {
+                      popoverContent += '<br><br>' + question.description;
+                    }
+                    checkButton.setAttribute('data-bs-content', popoverContent);
+                  }
+                  // Initialize and toggle popover
+                  if (typeof bootstrap !== 'undefined') {
+                    const existingPopover = bootstrap.Popover.getInstance(checkButton);
+                    if (existingPopover) {
+                      existingPopover.dispose();
+                    }
+                    const popover = new bootstrap.Popover(checkButton, {
+                      trigger: 'focus'
+                    });
+                    popover.show();
+                    checkButton.focus();
+                  }
+                };
+                buttonContainer.appendChild(checkButton);
+                options.htmlElement.appendChild(buttonContainer);
+              }
+              // Support HTML questions with input fields and correctAnswers
+              if (originalQuestion && originalQuestion.correctAnswers && question.getType() === 'html') {
+                console.log("Creating Check Answers button for HTML question:", question.name);
+                console.log("correctAnswers:", originalQuestion.correctAnswers);
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'sticigui-check-answer-container';
+
+                const checkButton = document.createElement('button');
+                checkButton.textContent = 'Check Answers';
+                checkButton.className = 'btn btn-primary btn-sm sticigui-check-answer-btn';
+                checkButton.setAttribute('data-bs-toggle', 'popover');
+                checkButton.setAttribute('data-bs-placement', 'top');
+                checkButton.setAttribute('data-bs-html', 'true');
+
+                checkButton.onclick = function() {
+                  const correctAnswers = originalQuestion.correctAnswers;
+                  let allCorrect = true;
+                  let hasAnswers = false;
+                  let results = [];
+
+                  // Check each input field
+                  for (const inputId in correctAnswers) {
+                    const inputElement = document.getElementById(inputId);
+                    if (inputElement) {
+                      const userValue = inputElement.value.trim();
+                      const correctValue = correctAnswers[inputId];
+                      
+                      if (userValue === '') {
+                        allCorrect = false;
+                        continue;
+                      }
+                      hasAnswers = true;
+                      
+                      // Handle both text (like "13%") and numeric comparisons
+                      let isCorrect = false;
+                      if (typeof correctValue === 'string' && correctValue.includes('%')) {
+                        // For percentage strings, do case-insensitive string comparison
+                        isCorrect = userValue.toLowerCase() === correctValue.toLowerCase();
+                      } else {
+                        // For numeric values, parse and compare numbers
+                        const userNum = parseFloat(userValue);
+                        const correctNum = parseFloat(correctValue);
+                        isCorrect = !isNaN(userNum) && !isNaN(correctNum) && userNum === correctNum;
+                      }
+                      
+                      if (!isCorrect) {
+                        allCorrect = false;
+                      }
+                      
+                      results.push({
+                        inputId: inputId,
+                        userValue: userValue,
+                        correctValue: correctValue,
+                        isCorrect: isCorrect
+                      });
+                    }
+                  }
+
+                  if (!hasAnswers) {
+                    checkButton.setAttribute('data-bs-content', 'Please fill in at least one answer first.');
+                    checkButton.setAttribute('data-bs-title', 'Warning');
+                    checkButton.className = 'btn btn-warning btn-sm sticigui-check-answer-btn';
+                  } else {
+                    const resultText = allCorrect ? 'All correct!' : 'Some answers are incorrect.';
+                    const buttonClass = allCorrect ? 'btn btn-success btn-sm sticigui-check-answer-btn' : 'btn btn-danger btn-sm sticigui-check-answer-btn';
+                    checkButton.className = buttonClass;
+                    
+                    let popoverContent = resultText;
+                    if (!allCorrect) {
+                      popoverContent += '<br><br><strong>Incorrect answers:</strong><br>';
+                      results.forEach(result => {
+                        if (!result.isCorrect) {
+                          popoverContent += `• Input should be ${result.correctValue} (you entered: ${result.userValue})<br>`;
+                        }
+                      });
+                    }
+                    if (originalQuestion.description) {
+                      popoverContent += '<br><br>' + originalQuestion.description;
+                    }
+                    checkButton.setAttribute('data-bs-content', popoverContent);
+                  }
+                  
+                  // Initialize and toggle popover
+                  if (typeof bootstrap !== 'undefined') {
+                    const existingPopover = bootstrap.Popover.getInstance(checkButton);
+                    if (existingPopover) {
+                      existingPopover.dispose();
+                    }
+                    const popover = new bootstrap.Popover(checkButton, {
+                      trigger: 'focus'
+                    });
+                    popover.show();
+                    checkButton.focus();
+                  }
+                };
+
+                buttonContainer.appendChild(checkButton);
+                options.htmlElement.appendChild(buttonContainer);
+              }
+            });
+            
+            survey.render("{{SURVEY_ID}}");
+            // Inject font override at runtime to guarantee it wins
+            var style = document.createElement('style');
+            style.innerHTML = `
+              .sticigui-surveyjs-container,
+              .sticigui-surveyjs-container *,
+              .sticigui-surveyjs-container .sv-root,
+              .sticigui-surveyjs-container .sv-root *,
+              .sticigui-surveyjs-container .sv-root[style],
+              .sticigui-surveyjs-container .sv-root *[style] {
+                font-family: var(--bs-body-font-family, inherit) !important;
+              }
+              .sticigui-surveyjs-container,
+              .sticigui-surveyjs-container .sv-root {
+                --sjs-font-family: var(--bs-body-font-family) !important;
+              }
+            `;
+            document.head.appendChild(style);
+          } catch (error) {
+            console.error("Error initializing survey:", error);
+            document.getElementById("{{SURVEY_ID}}").innerHTML = 
+              '<div class="sticigui-error-message">Error loading survey: ' + error.message + '</div>';
+          }
+        }
+        
+        // Load SurveyJS library and CSS using direct URL (defaultV2 theme)
+        function loadSurveyJsCssAndScript(callback) {
+          // Load defaultV2 SurveyJS CSS (defaultV2.css)
+          var cssId = 'surveyjs-defaultv2-css';
+          if (!document.getElementById(cssId)) {
+            var link = document.createElement('link');
+            link.id = cssId;
+            link.rel = 'stylesheet';
+            link.href = 'https://unpkg.com/survey-core@1.9.116/defaultV2.css';
+            document.head.appendChild(link);
+          }
+          // Load SurveyJS JS
+          if (typeof window.$ === 'undefined') {
+            const jqueryScript = document.createElement('script');
+            jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+            jqueryScript.onload = function() {
+              const surveyScript = document.createElement('script');
+              surveyScript.src = 'https://unpkg.com/survey-jquery@1.9.116/survey.jquery.min.js';
+              surveyScript.onload = function() { setTimeout(callback, 50); };
+              document.head.appendChild(surveyScript);
+            };
+            document.head.appendChild(jqueryScript);
+          } else {
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/survey-jquery@1.9.116/survey.jquery.min.js';
+            script.onload = function() { setTimeout(callback, 50); };
+            document.head.appendChild(script);
+          }
+        }
+        // Load SurveyJS library and CSS, then initialize
+        if (typeof window.Survey !== 'undefined') {
+          initSurvey();
+        } else {
+          loadSurveyJsCssAndScript(initSurvey);
+        }
+      })();
+    </script>
+  </div>
+</div>

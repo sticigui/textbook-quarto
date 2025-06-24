@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "SticiGui"
+  author: "Philip B. Stark"
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - preface.qmd
+    - howto.qmd
+    - reasoning.qmd
+    - histograms.qmd
+    - test-ex.qmd
+
+filters:
+  - shinylive
+
+#crossref:
+#  chapters: false
+#  exm-title: "Example"
+
+format:
+  html:
+    #theme: cosmo
+    toc: true
+    css:
+      #- style/example.css
+      - style/rules.css
+      - style/callout-spacing.css
+      - _extensions/sticigui/surveyjs/sticigui-surveyjs.css

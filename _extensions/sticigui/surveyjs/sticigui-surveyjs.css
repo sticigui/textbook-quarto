@@ -1,0 +1,215 @@
+/* SticIGui SurveyJS Extension Styles */
+/* Minimal styling to inherit Quarto theme */
+
+/* Question styling */
+.sticigui-surveyjs-container .sv_q {
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 1.5rem !important;
+  padding: 0 !important;
+}
+
+.sticigui-surveyjs-container .sv_q_title {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+  color: inherit !important;
+}
+
+/* Radio button styling */
+.sticigui-surveyjs-container .sv_q_radiogroup_item {
+  margin: 0.5rem 0 !important;
+}
+
+.sticigui-surveyjs-container .sv_q_radiogroup_label {
+  font-size: 0.9rem !important;
+  color: inherit !important;
+}
+
+/* Solution/explanation styling */
+.exercise-feedback.correct {
+  background-color: #ecfdf5 !important;
+  border: 1px solid #d1fae5 !important;
+}
+
+.exercise-feedback.incorrect {
+  background-color: #fef2f2 !important;
+  border: 1px solid #fecaca !important;
+}
+
+/* Button styling to match Quarto */
+.exercise-feedback .btn {
+  margin-left: 10px;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Progress bar styling */
+.sticigui-surveyjs-container .sv_progress {
+  height: 4px !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Check Answer Button Styling */
+.sticigui-check-answer-container {
+  margin-top: 10px;
+  /* text-align: center; */
+}
+
+.sticigui-check-answer-btn {
+  margin-right: 10px;
+}
+
+/* Wider popovers for better feedback display - Pure CSS Solution */
+/* Target popovers globally with very high specificity */
+.popover {
+  max-width: 600px !important;
+}
+
+/* Target the popover body specifically */
+.popover .popover-body {
+  max-width: 580px !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* Override any Bootstrap defaults with highest specificity */
+body .popover[style*="max-width"],
+body .popover.show,
+body .popover[data-popper-placement] {
+  max-width: 600px !important;
+  width: auto !important;
+}
+
+/* Force width even with inline styles */
+.popover[style] {
+  max-width: 600px !important;
+}
+
+/* Ensure content wraps properly */
+.popover .popover-body {
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* HTML Table Styling for Exercises */
+.sticigui-exercise-table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  width: 100%;
+  max-width: none;
+  background: white;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sticigui-exercise-table th {
+  padding: 10px;
+  background: #f8f9fa;
+  /*text-align: center;*/
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: #495057;
+}
+
+.sticigui-exercise-table td {
+  padding: 8px;
+  /*text-align: center;*/
+  border-bottom: 1px solid #dee2e6;
+}
+
+.sticigui-exercise-table .table-input {
+  width: 80px;
+  /*text-align: center;*/
+  padding: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  background: white;
+}
+
+.sticigui-exercise-table .table-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.sticigui-exercise-table .table-input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.sticigui-exercise-table .table-readonly {
+  background: #f8f9fa;
+  font-weight: bold;
+  color: #495057;
+}
+
+/* Frequency Table Specific Styling */
+.sticigui-frequency-table {
+  max-width: 400px;
+}
+
+.sticigui-frequency-table .table-input {
+  width: 60px;
+}
+
+/* Center HTML content in SurveyJS */
+.sticigui-surveyjs-container .sv-html {
+  text-align: center;
+}
+
+.sticigui-error-message {
+  color: red;
+  padding: 10px;
+  border: 1px solid #ff0000;
+  background: #ffe6e6;
+  border-radius: 4px;
+}
+
+/* Force SurveyJS to use Quarto/Bootstrap font-family */
+.sticigui-surveyjs-container {
+  --sjs-font-family: var(--bs-body-font-family) !important;
+}
+.sticigui-surveyjs-container,
+.sticigui-surveyjs-container *,
+.sticigui-surveyjs-container .sv-root,
+.sticigui-surveyjs-container .sv-root *,
+.sticigui-surveyjs-container .sv-root[style],
+.sticigui-surveyjs-container .sv-root *[style] {
+  font-family: var(--bs-body-font-family, inherit) !important;
+}
+
+/* Inherit Quarto's heading colors */
+.sticigui-surveyjs-container .sd-title {
+  color: var(--bs-heading-color, inherit) !important;
+}
+
+/* Inherit Quarto's link color for SurveyJS exercise output */
+.sticigui-surveyjs-container .sd-html a {
+  color: var(--bs-link-color, #0d6efd) !important;
+}
+
+/* Ensure accessible background for SurveyJS content and links */
+.sticigui-surveyjs-container .sd-html,
+.sticigui-surveyjs-container .sv-components-row {
+  background-color: var(--bs-body-bg, #fff) !important;
+}
+
+/* Inherit Quarto's secondary text color for SurveyJS descriptions */
+.sticigui-surveyjs-container .sd-description .sv-string-viewer {
+  color: var(--bs-secondary-color, #6c757d) !important;
+}
+
+.sticigui-surveyjs-container .sd-question__content {
+  margin-right: 1em;
+}
+
+.sticigui-surveyjs-container .sd-page {
+  padding: 0;
+}
+
+.sticigui-surveyjs-container .sd-title.sd-container-modern__title {
+  padding: 0;
+}
