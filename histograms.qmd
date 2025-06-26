@@ -746,83 +746,67 @@ The following exercises verify that you can calculate percentiles.
 
 {{< video https://www.youtube.com/embed/WWAvdTjW13A?start=2683&end=3020 title="Estimating Percentiles from Histograms" >}}
 
-To find a [percentile](gloss.htm#percentile) of a
-set of measurements exactly, one needs the original data.
-In plotting a [histogram](gloss.htm#histogram), the data are grouped into
-[class intervals](gloss.htm#class_interval), which typically
-makes it impossible to find exact [percentiles](gloss.htm#percentile)
-from a histogram.
-A histogram tells you the percentage of data each class interval contains, but not where in the class
-interval each datum is.
-However, one can find *approximate*
-[percentiles](gloss.htm#percentile)
-from a [histogram](gloss.htm#histogram): The *p*th
-[percentile](gloss.htm#percentile)
-is approximately the point on the horizontal axis such that
-the area under the [histogram](gloss.htm#histogram) to the left of the
-point is *p*%.
-The figure below is another histogram of the Piñon Flat $g$ data, with
-equal-width class intervals:
+To find a [percentile](gloss.htm#percentile) of a set of measurements exactly,
+one needs the original data. In plotting a [histogram](gloss.htm#histogram), the
+data are grouped into [class intervals](gloss.htm#class_interval), which
+typically makes it impossible to find exact [percentiles](gloss.htm#percentile)
+from a histogram. A histogram tells you the percentage of data each class
+interval contains, but not where in the class interval each datum is. However,
+one can find *approximate* [percentiles](gloss.htm#percentile) from a
+[histogram](gloss.htm#histogram): The *p*th [percentile](gloss.htm#percentile)
+is approximately the point on the horizontal axis such that the area under the
+[histogram](gloss.htm#histogram) to the left of the point is *p*%. The figure
+below is another histogram of the Piñon Flat $g$ data, with equal-width class
+intervals:
 
 ![Histogram of deviations of g using equal-width bins](Graphics/histtoon.jpg "Histogram of deviations of g using equal-width bin")
 
-This histogram has equal-width [class intervals](gloss.htm#class_interval).
-You can change the number of bins by typing a different value into the box labeled
-"Bins" and
-pressing the Return or Enter key—but don't do that yet.
-If you click the List Data button, a new
-window will pop up with a listing of the 100 numbers in the gravity data set.
-This applet also
-displays two numbers that are defined in other chapters:
-the [mean](gloss.htm#mean)
-(average) and the [SD](gloss.htm#sd) (standard deviation).
-The range −152 to −44.2 is highlighted when you first
-open this page, and the figure shows that the area under the histogram in that range is 50%.
-Our estimate of the median from the histogram thus would be −44.2.
-We saw earlier in this chapter that the median of the data is −47:
-The estimate of the median from the histogram is off by a bit
-because the data have been grouped into
-[class intervals](gloss.htm#class_interval) in the
-[histogram](gloss.htm#histogram).
+This histogram has equal-width [class intervals](gloss.htm#class_interval). You
+can change the number of bins by typing a different value into the box labeled
+"Bins" and pressing the Return or Enter key—but don't do that yet. If you click
+the List Data button, a new window will pop up with a listing of the 100 numbers
+in the gravity data set. This applet also displays two numbers that are defined
+in other chapters: the [mean](gloss.htm#mean) (average) and the
+[SD](gloss.htm#sd) (standard deviation). The range −152 to −44.2 is highlighted
+when you first open this page, and the figure shows that the area under the
+histogram in that range is 50%. Our estimate of the median from the histogram
+thus would be −44.2. We saw earlier in this chapter that the median of the data
+is −47: The estimate of the median from the histogram is off by a bit because
+the data have been grouped into [class intervals](gloss.htm#class_interval) in
+the [histogram](gloss.htm#histogram).
 
-Type −47 into the **to** box, and press Return or Enter.
-The selected area under the histogram should show 48%.
-The difference between 48% and 50% is also caused by the grouping of data into
-[class intervals](gloss.htm#class_interval) in the histogram.
+Type −47 into the **to** box, and press Return or Enter. The selected area under
+the histogram should show 48%. The difference between 48% and 50% is also caused
+by the grouping of data into [class intervals](gloss.htm#class_interval) in the
+histogram.
 
 The following exercise lets you practice estimating percentiles from histograms.
 
-Now change the number of bins from 9 to 30 by typing 30 into
-the **Bins** box and pressing Return or Enter.
-The histogram is now rougher—it has more "bumps" or modes.
-The appearance of a histogram depends crucially on how the class intervals are chosen.
-If you estimate percentiles from the histogram with 30 bins and with 9 bins,
-you will get different answers.
+Now change the number of bins from 9 to 30 by typing 30 into the **Bins** box
+and pressing Return or Enter. The histogram is now rougher—it has more "bumps"
+or modes. The appearance of a histogram depends crucially on how the class
+intervals are chosen. If you estimate percentiles from the histogram with 30
+bins and with 9 bins, you will get different answers.
 
 ## Summary
 
-This chapter introduced *variables*, and distinctions among variables, according to the
-kinds of values the variables can take: *quantitative*,
-*qualitative*, and *categorical*.
-Quantitative variables are classified further as either *discrete* or
-*continuous*.
-Data—observed values of variables—can be presented in many ways.
-Tables often are easier to understand than words.
-When the number of data is large, looking at the data provides little insight,
-but summaries of the data can help.
-Quantitative data can be summarized using *frequency tables*.
+This chapter introduced *variables*, and distinctions among variables, according
+to the kinds of values the variables can take: *quantitative*, *qualitative*,
+and *categorical*. Quantitative variables are classified further as either
+*discrete* or *continuous*. Data—observed values of variables—can be presented
+in many ways. Tables often are easier to understand than words. When the number
+of data is large, looking at the data provides little insight, but summaries of
+the data can help. Quantitative data can be summarized using *frequency tables*.
 Constructing a frequency table requires specifying *class intervals* and an
-*endpoint convention*.
-Frequency tables can be presented graphically as *histograms*, which give an
-impression of the distribution of the data.
-In a histogram, relative frequency is represented by area.
-Characteristics of the distribution that can be gleaned from a histogram include
-*symmetry*, *skewness*, and the number and location of *modes*.
-However, the appearance of those characteristics in a histogram depends on
-the number and location of the class intervals.
-*Percentiles* are another way to summarize the distribution of a list.
-Calculating percentiles exactly requires the original data, but percentiles
-can be estimated approximately from histograms.
+*endpoint convention*. Frequency tables can be presented graphically as
+*histograms*, which give an impression of the distribution of the data. In a
+histogram, relative frequency is represented by area. Characteristics of the
+distribution that can be gleaned from a histogram include *symmetry*,
+*skewness*, and the number and location of *modes*. However, the appearance of
+those characteristics in a histogram depends on the number and location of the
+class intervals. *Percentiles* are another way to summarize the distribution of
+a list. Calculating percentiles exactly requires the original data, but
+percentiles can be estimated approximately from histograms.
 
 ## Key Terms
 
