@@ -1,0 +1,11 @@
+/* Custom spacing for Quarto callout headers */
+
+/* Add spacing beneath callout headers */
+.callout.callout-titled > .callout-header {
+  margin-bottom: 0.5rem !important; /* Override the default -0.2em */
+}
+
+/* Alternative: Add padding to the top of callout body content */
+.callout.callout-titled .callout-body > :first-child {
+  padding-top: 0.75rem !important; /* Override the default 0.5rem */
+}
