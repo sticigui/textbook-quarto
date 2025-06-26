@@ -1,0 +1,156 @@
+---
+#title: "altair"
+format: 
+  html:
+    code-fold: false
+    code-tools: true
+number-sections: false
+---
+
+```{shinylive-python}
+#| standalone: true
+#| components: [viewer]
+#| layout: vertical
+#| viewerHeight: 600
+
+from shiny.express import input, render, ui
+from shinywidgets import render_altair
+import altair as alt
+import numpy as np
+import pandas as pd
+
+g_data = np.array([
+    -152, -132, -132, -128, -122, -121, -120, -113, -112, -108,
+    -107, -107, -106, -106, -106, -105, -101, -101, -99, -89,
+    -87, -86, -83, -83, -80, -80, -79, -74, -74, -74,
+    -71, -71, -69, -67, -67, -65, -62, -61, -60, -60,
+    -59, -55, -54, -54, -52, -50, -49, -48, -48, -47,
+    -44, -43, -38, -37, -35, -34, -34, -29, -27, -27,
+    -26, -24, -24, -19, -19, -19, -19, -18, -16, -16,
+    -15, -14, -14, -12, -12, -12, -4, -1, 0, 0,
+    1, 2, 7, 14, 14, 14, 18, 18, 19, 24,
+    29, 29, 41, 45, 51, 72, 150, 155
+])
+df = pd.DataFrame({'g': g_data})
+
+bin_edges = [-160, -110, -90, -70, -40, -10, 20, 50, 80, 160]
+
+# Place histogram plot first
+@render_altair
+def histogram():
+    # Get current slider values
+    area_min, area_max = input.area_range()
+    
+    # Calculate counts for each bin
+    counts, edges = np.histogram(df['g'], bins=bin_edges)
+    
+    # Create a DataFrame for the histogram data with bin edges for proper bar positioning
+    hist_data = []
+    
+    for i in range(len(counts)):
+        bin_left = edges[i]
+        bin_right = edges[i + 1]
+        count = counts[i]
+        
+        # Only create bars for bins with non-zero counts
+        if count > 0:
+            # Determine what portion of this bin should be highlighted
+            if area_max <= bin_left or area_min >= bin_right:
+                # No overlap - should be uncolored (use default color)
+                hist_data.append({
+                    'bin_start': bin_left,
+                    'bin_end': bin_right,
+                    'count': count,
+                    'color': 'unselected'
+                })
+            elif area_min <= bin_left and area_max >= bin_right:
+                # Complete overlap - should be yellow (selected)
+                hist_data.append({
+                    'bin_start': bin_left,
+                    'bin_end': bin_right,
+                    'count': count,
+                    'color': 'selected'
+                })
+            else:
+                # Partial overlap - split into segments
+                overlap_left = max(area_min, bin_left)
+                overlap_right = min(area_max, bin_right)
+                
+                # Unselected left portion
+                if overlap_left > bin_left:
+                    hist_data.append({
+                        'bin_start': bin_left,
+                        'bin_end': overlap_left,
+                        'count': count,
+                        'color': 'unselected'
+                    })
+                
+                # Selected middle portion (yellow)
+                if overlap_right > overlap_left:
+                    hist_data.append({
+                        'bin_start': overlap_left,
+                        'bin_end': overlap_right,
+                        'count': count,
+                        'color': 'selected'
+                    })
+                
+                # Unselected right portion
+                if bin_right > overlap_right:
+                    hist_data.append({
+                        'bin_start': overlap_right,
+                        'bin_end': bin_right,
+                        'count': count,
+                        'color': 'unselected'
+                    })
+    
+    hist_df = pd.DataFrame(hist_data)
+    
+    # Create the chart with color-coded bars using rect mark with proper height
+    chart = alt.Chart(hist_df).mark_rect(
+        stroke='black',
+        strokeWidth=1,
+        opacity=0.7
+    ).encode(
+        x=alt.X('bin_start:Q', 
+                title="Gravity Deviation (x10⁻⁸ m/s²)",
+                scale=alt.Scale(domain=[-160, 160])),
+        x2=alt.X2('bin_end:Q'),
+        y=alt.Y('count:Q', title="Frequency", scale=alt.Scale(domain=[0, 25])),
+        y2=alt.Y2(datum=0),
+        color=alt.Color('color:N', 
+                       scale=alt.Scale(domain=['unselected', 'selected'], 
+                                     range=['blue', 'yellow']),
+                       legend=None)
+    ).properties(
+        title="Histogram of deviations of g measured at Piñon Flat Observatory",
+        width=500,
+        height=400
+    ).configure_axis(
+        grid=False  # Remove grid lines
+    ).configure_view(
+        stroke=None  # Remove chart border
+    )
+    return chart
+
+# Add spacing and alignment with histogram axis
+ui.div(
+    # Range slider label and control  
+    ui.p("Selected area range:", style="margin-bottom: 5px;"),
+    ui.input_slider("area_range", "", min=-160, max=160, value=[-160, 37.8], step=0.1),
+    
+    # Add left margin to align with histogram plot area and top margin for spacing from histogram
+    style="margin-left: 50px; margin-right: 50px; margin-top: 4em;"
+)
+
+# Show selected area percentage as styled output using Bootstrap classes
+with ui.div(class_="bg-body-secondary border rounded p-2 mb-3 font-monospace", style="margin-left: 50px; margin-right: 50px;"):
+    @render.text
+    def selected_area_text():
+        area_min, area_max = input.area_range()
+        if area_min < area_max:
+            highlighted_data = df[df['g'].between(area_min, area_max)]
+            if not highlighted_data.empty:
+                percentage = len(highlighted_data) / len(df) * 100
+                return f"Selected area: {percentage:.1f}%"
+        return "Selected area: 0.0%"
+```

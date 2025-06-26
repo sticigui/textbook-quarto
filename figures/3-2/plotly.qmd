@@ -1,0 +1,166 @@
+---
+#title: "plotly"
+format: 
+  html:
+    code-fold: false
+    code-tools: true
+number-sections: false
+---
+
+```{shinylive-python}
+#| standalone: true
+#| components: [viewer]
+#| layout: vertical
+#| viewerHeight: 600
+
+import plotly.graph_objects as go
+import plotly.express as px
+import numpy as np
+import pandas as pd
+from shiny.express import ui, input, render
+from shinywidgets import render_plotly
+
+# Data preparation
+g_data = np.array([
+    -152, -132, -132, -128, -122, -121, -120, -113, -112, -108,
+    -107, -107, -106, -106, -106, -105, -101, -101, -99, -89,
+    -87, -86, -83, -83, -80, -80, -79, -74, -74, -74,
+    -71, -71, -69, -67, -67, -65, -62, -61, -60, -60,
+    -59, -55, -54, -54, -52, -50, -49, -48, -48, -47,
+    -44, -43, -38, -37, -35, -34, -34, -29, -27, -27,
+    -26, -24, -24, -19, -19, -19, -19, -18, -16, -16,
+    -15, -14, -14, -12, -12, -12, -4, -1, 0, 0,
+    1, 2, 7, 14, 14, 14, 18, 18, 19, 24,
+    29, 29, 41, 45, 51, 72, 150, 155
+])
+df = pd.DataFrame({'g': g_data})
+
+# Define bin edges
+bin_edges = [-160, -110, -90, -70, -40, -10, 20, 50, 80, 160]
+
+# Place histogram plot first
+@render_plotly
+def histogram():
+    # Get current slider values
+    area_min, area_max = input.area_range()
+    
+    # Calculate counts for each bin
+    counts, edges = np.histogram(df['g'], bins=bin_edges)
+    
+    # Prepare data for plotly
+    bin_centers = []
+    bin_widths = []
+    colors = []
+    bar_counts = []
+    
+    for i in range(len(counts)):
+        bin_left = edges[i]
+        bin_right = edges[i + 1]
+        bin_width = bin_right - bin_left
+        bin_center = bin_left + bin_width / 2
+        count = counts[i]
+        
+        # Determine what portion of this bin should be highlighted
+        if area_max <= bin_left or area_min >= bin_right:
+            # No overlap - all blue
+            bin_centers.append(bin_center)
+            bin_widths.append(bin_width)
+            colors.append('blue')
+            bar_counts.append(count)
+        elif area_min <= bin_left and area_max >= bin_right:
+            # Complete overlap - all yellow
+            bin_centers.append(bin_center)
+            bin_widths.append(bin_width)
+            colors.append('yellow')
+            bar_counts.append(count)
+        else:
+            # Partial overlap - we need to split this into segments
+            overlap_left = max(area_min, bin_left)
+            overlap_right = min(area_max, bin_right)
+            
+            # Blue left portion
+            if overlap_left > bin_left:
+                blue_left_width = overlap_left - bin_left
+                blue_left_center = bin_left + blue_left_width / 2
+                bin_centers.append(blue_left_center)
+                bin_widths.append(blue_left_width)
+                colors.append('blue')
+                bar_counts.append(count)
+            
+            # Yellow middle portion
+            if overlap_right > overlap_left:
+                yellow_width = overlap_right - overlap_left
+                yellow_center = overlap_left + yellow_width / 2
+                bin_centers.append(yellow_center)
+                bin_widths.append(yellow_width)
+                colors.append('yellow')
+                bar_counts.append(count)
+            
+            # Blue right portion
+            if bin_right > overlap_right:
+                blue_right_width = bin_right - overlap_right
+                blue_right_center = overlap_right + blue_right_width / 2
+                bin_centers.append(blue_right_center)
+                bin_widths.append(blue_right_width)
+                colors.append('blue')
+                bar_counts.append(count)
+    
+    # Create the plotly figure
+    fig = go.Figure()
+    
+    # Add bars
+    for i in range(len(bin_centers)):
+        fig.add_trace(go.Bar(
+            x=[bin_centers[i]],
+            y=[bar_counts[i]],
+            width=[bin_widths[i]],
+            marker=dict(
+                color=colors[i],
+                opacity=0.7,
+                line=dict(color='black', width=1)
+            ),
+            showlegend=False
+        ))
+    
+    # Update layout
+    fig.update_layout(
+        title="Histogram of deviations of g measured at Piñon Flat Observatory.",
+        xaxis_title="Gravity Deviation (x10⁻⁸ m/s²)",
+        yaxis_title="Frequency",
+        xaxis=dict(
+            range=[-160, 160],  # Explicitly set the full range
+            fixedrange=False,   # Allow zooming if needed
+            constrain='domain'  # Constrain to the specified range
+        ),
+        height=450,  # Keep height fixed
+        bargap=0,
+        #margin=dict(l=50, r=50, t=120, b=50),  # Keep reasonable margins
+        title_x=0.5,  # Center the title
+        autosize=True  # Let Plotly auto-size to fit container
+    )
+    
+    return fig
+
+# Add spacing and alignment with histogram axis
+ui.div(
+    # Range slider label and control  
+    ui.p("Selected area range:", style="margin-bottom: 5px;"),
+    ui.input_slider("area_range", "", min=-160, max=160, value=[-160, -44.2], step=0.1),
+    
+    # Add left margin to align with histogram plot area (accounting for y-axis label space)
+    style="margin-left: 50px; margin-right: 50px;"
+)
+
+# Show selected area percentage as styled output using Bootstrap classes
+with ui.div(class_="bg-body-secondary border rounded p-2 mb-3 font-monospace", style="margin-left: 50px; margin-right: 50px;"):
+    @render.text
+    def selected_area_text():
+        area_min, area_max = input.area_range()
+        if area_min < area_max:
+            highlighted_data = df[df['g'].between(area_min, area_max)]
+            if not highlighted_data.empty:
+                percentage = len(highlighted_data) / len(df) * 100
+                return f"Selected area: {percentage:.1f}%"
+        return "Selected area: 0.0%"
+```
+
