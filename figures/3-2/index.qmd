@@ -1,0 +1,15 @@
+::: {.panel-tabset}
+
+#### Altair
+
+{{< include figures/3-2/altair.qmd >}}
+
+#### Plotly
+
+{{< include figures/3-2/plotly.qmd >}}
+
+#### Matplotlib
+
+{{< include figures/3-2/matplotlib.qmd >}}
+
+:::
