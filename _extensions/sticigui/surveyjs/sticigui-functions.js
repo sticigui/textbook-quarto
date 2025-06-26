@@ -71,6 +71,36 @@ function randomGravityPercentile(params) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function randomInt(params) {
+  const min = params[0] !== undefined ? params[0] : 1;
+  const max = params[1] !== undefined ? params[1] : 100;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomIntDistinct(params) {
+  const min = params[0] !== undefined ? params[0] : 1;
+  const max = params[1] !== undefined ? params[1] : 100;
+  const exclude = Array.isArray(params[2]) ? params[2] : [];
+  let candidate;
+  let tries = 0;
+  do {
+    candidate = Math.floor(Math.random() * (max - min + 1)) + min;
+    tries++;
+    if (tries > 1000) break; // avoid infinite loop
+  } while (exclude.includes(candidate));
+  return candidate;
+}
+
+function getPercentileValue(params) {
+  const sortedData = params[0];
+  const percentile = params[1];
+  if (!Array.isArray(sortedData) || typeof percentile !== 'number') return null;
+  let index = Math.ceil(percentile * sortedData.length / 100) - 1;
+  index = Math.max(index, 0);
+  index = Math.min(index, sortedData.length - 1);
+  return sortedData[index];
+}
+
 // List of custom functions to register
 const sticiguiCustomFunctions = [
   { name: 'generateRandomData', fn: generateRandomData },
@@ -79,7 +109,10 @@ const sticiguiCustomFunctions = [
   { name: 'calculatePercentiles', fn: calculatePercentiles },
   { name: 'getOrdinal', fn: getOrdinal },
   { name: 'getGravityPercentile', fn: getGravityPercentile },
-  { name: 'randomGravityPercentile', fn: randomGravityPercentile }
+  { name: 'randomGravityPercentile', fn: randomGravityPercentile },
+  { name: 'randomInt', fn: randomInt },
+  { name: 'randomIntDistinct', fn: randomIntDistinct },
+  { name: 'getPercentileValue', fn: getPercentileValue }
 ];
 
 // Register all functions with SurveyJS FunctionFactory

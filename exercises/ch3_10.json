@@ -8,73 +8,70 @@
   "checkErrorsMode": "onValueChanged",
   "showCorrectAnswer": true,
   "calculatedValues": [
-    {
-      "name": "randomData",
-      "expression": "generateRandomData(25, -50, 50)"
-    },
-    {
-      "name": "sortedData", 
-      "expression": "sortData({randomData})"
-    },
-    {
-      "name": "percentiles",
-      "expression": "generateRandomPercentiles(5, 1, 99)"
-    },
-    {
-      "name": "percentileAnswers",
-      "expression": "calculatePercentiles({sortedData}, {percentiles})"
-    },
-    {
-      "name": "ordinalPercentile1",
-      "expression": "getOrdinal({percentiles}[0])"
-    },
-    {
-      "name": "ordinalPercentile2",
-      "expression": "getOrdinal({percentiles}[1])"
-    },
-    {
-      "name": "ordinalPercentile3",
-      "expression": "getOrdinal({percentiles}[2])"
-    },
-    {
-      "name": "ordinalPercentile4",
-      "expression": "getOrdinal({percentiles}[3])"
-    },
-    {
-      "name": "ordinalPercentile5",
-      "expression": "getOrdinal({percentiles}[4])"
-    }
+    { "name": "practiceData", "expression": "generateRandomData(25, -50, 50)" },
+    { "name": "sortedData", "expression": "sortData({practiceData})" },
+    { "name": "percentile1", "expression": "randomInt(1, 100)" },
+    { "name": "percentile2", "expression": "randomIntDistinct(1, 100, [{percentile1}])" },
+    { "name": "percentile3", "expression": "randomIntDistinct(1, 100, [{percentile1},{percentile2}])" },
+    { "name": "percentile4", "expression": "randomIntDistinct(1, 100, [{percentile1},{percentile2},{percentile3}])" },
+    { "name": "percentile5", "expression": "randomIntDistinct(1, 100, [{percentile1},{percentile2},{percentile3},{percentile4}])" },
+    { "name": "ordinal1", "expression": "getOrdinal({percentile1})" },
+    { "name": "ordinal2", "expression": "getOrdinal({percentile2})" },
+    { "name": "ordinal3", "expression": "getOrdinal({percentile3})" },
+    { "name": "ordinal4", "expression": "getOrdinal({percentile4})" },
+    { "name": "ordinal5", "expression": "getOrdinal({percentile5})" },
+    { "name": "value1", "expression": "getPercentileValue({sortedData}, {percentile1})" },
+    { "name": "value2", "expression": "getPercentileValue({sortedData}, {percentile2})" },
+    { "name": "value3", "expression": "getPercentileValue({sortedData}, {percentile3})" },
+    { "name": "value4", "expression": "getPercentileValue({sortedData}, {percentile4})" },
+    { "name": "value5", "expression": "getPercentileValue({sortedData}, {percentile5})" }
   ],
-  "questions": [
+  "elements": [
     {
-      "type": "text",
-      "name": "p1",
-      "title": "Practice Data: {randomData}\n\nSorted Data: {sortedData}\n\n{ordinalPercentile1} percentile:",
-      "correctAnswer": "{percentileAnswers}.p1"
-    },
-    {
-      "type": "text", 
-      "name": "p2",
-      "title": "{ordinalPercentile2} percentile:",
-      "correctAnswer": "{percentileAnswers}.p2"
-    },
-    {
-      "type": "text",
-      "name": "p3", 
-      "title": "{ordinalPercentile3} percentile:",
-      "correctAnswer": "{percentileAnswers}.p3"
-    },
-    {
-      "type": "text",
-      "name": "p4",
-      "title": "{ordinalPercentile4} percentile:",
-      "correctAnswer": "{percentileAnswers}.p4"
-    },
-    {
-      "type": "text",
-      "name": "p5",
-      "title": "{ordinalPercentile5} percentile:",
-      "correctAnswer": "{percentileAnswers}.p5"
+      "type": "panel",
+      "name": "practice_panel",
+      "elements": [
+        {
+          "type": "html",
+          "name": "practice_data_html",
+          "html": "<b>Practice Data:</b> {practiceData}<br><b>Sorted Data:</b> {sortedData}"
+        },
+        {
+          "type": "text",
+          "name": "p1",
+          "title": "{ordinal1} percentile:",
+          "titleLocation": "left",
+          "correctAnswer": "{value1}"
+        },
+        {
+          "type": "text",
+          "name": "p2",
+          "title": "{ordinal2} percentile:",
+          "titleLocation": "left",
+          "correctAnswer": "{value2}"
+        },
+        {
+          "type": "text",
+          "name": "p3",
+          "title": "{ordinal3} percentile:",
+          "titleLocation": "left",
+          "correctAnswer": "{value3}"
+        },
+        {
+          "type": "text",
+          "name": "p4",
+          "title": "{ordinal4} percentile:",
+          "titleLocation": "left",
+          "correctAnswer": "{value4}"
+        },
+        {
+          "type": "text",
+          "name": "p5",
+          "title": "{ordinal5} percentile:",
+          "titleLocation": "left",
+          "correctAnswer": "{value5}"
+        }
+      ]
     }
   ]
 }
